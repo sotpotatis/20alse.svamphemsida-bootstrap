@@ -1,0 +1,21 @@
+{
+  "name": "bootstrap-projekt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-old": "npx node-sass -o ./src/css ./src/css/style.css && purgecss -c ./purgecss.config.js",
+    "dev": "parcel serve src/*.html --dist-dir dist"
+  },
+  "author": "20alse",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "node-sass": "^7.0.3"
+  }
+}
