@@ -5,17 +5,24 @@
   "main": "index.js",
   "scripts": {
     "build-old": "npx node-sass -o ./src/css ./src/css/style.css && purgecss -c ./purgecss.config.js",
-    "dev": "parcel serve src/*.html --dist-dir dist"
+    "dev": "parcel serve src/*.{html,pug}"
   },
   "author": "20alse",
   "license": "ISC",
   "dependencies": {
+    "@marcotss/parcel-transformer-handlebars-json": "^1.0.0",
+    "@parcel/config-default": "^2.8.0",
+    "@parcel/reporter-dev-server": "^2.8.0",
+    "@parcel/transformer-pug": "^2.8.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
-    "sass": "^1.55.0"
+    "nunjucks": "^3.2.3",
+    "parcel": "^2.8.0",
+    "parcel-plugin-nunjucks": "^2.2.2",
+    "sass": "^1.56.1"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
+    "@parcel/transformer-sass": "^2.8.0",
     "node-sass": "^7.0.3"
   }
 }

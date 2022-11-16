@@ -1,0 +1,8 @@
+{
+    "extends": "@parcel/config-default",
+    "transformers": {
+        "*.{hbs,handlebars}": ["@marcotss/parcel-transformer-handlebars-json"],
+        "*.njk": ["@michigandaily/parcel-transformer-nunjucks"],
+        "*.pug": ["@parcel/transformer-pug"]
+    }
+}
