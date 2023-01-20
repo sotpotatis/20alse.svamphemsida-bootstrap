@@ -532,9 +532,13 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"ebWYT":[function(require,module,exports) {
-var _bootstrap = require("bootstrap");
+var _bootstrap = require("bootstrap"); // Importera Bootstrap
+require("bootstrap-icons/font/bootstrap-icons.css") // Importera Bootstrap-icons för ikoner
+;
+index = require("./indexFunctions.js") // Funktioner jag har skrivit för index
+;
 
-},{"bootstrap":"h36JB"}],"h36JB":[function(require,module,exports) {
+},{"bootstrap":"h36JB","bootstrap-icons/font/bootstrap-icons.css":"87yWV","./indexFunctions.js":"5LJug"}],"h36JB":[function(require,module,exports) {
 /*!
   * Bootstrap v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -6264,6 +6268,30 @@ var createPopper = /*#__PURE__*/ (0, _createPopperJs.popperGenerator)({
     defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
-},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cVgJb","ebWYT"], "ebWYT", "parcelRequire1248")
+},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"87yWV":[function() {},{}],"5LJug":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "collapseButtonClicked", ()=>collapseButtonClicked);
+parcelHelpers.export(exports, "openURL", ()=>openURL);
+function collapseButtonClicked(button) {
+    const icons = {
+        notCollapsed: "bi-caret-up-fill",
+        collapsed: "bi-caret-down-fill"
+    };
+    if (button.dataset.collapsed === "true") {
+        button.dataset.collapsed = "false";
+        button.classList.remove(icons.collapsed);
+        button.classList.add(icons.notCollapsed);
+    } else {
+        button.dataset.collapsed = "true";
+        button.classList.add(icons.collapsed);
+        button.classList.remove(icons.notCollapsed);
+    }
+}
+function openURL(newURL) {
+    window.open(openURL);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cVgJb","ebWYT"], "ebWYT", "parcelRequire1248")
 
 //# sourceMappingURL=index.739bf03c.js.map

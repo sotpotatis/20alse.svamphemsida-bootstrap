@@ -1,0 +1,29 @@
+doctype html 
+html(lang="sv")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    block title
+    script(type="module", src="js/index.js")
+    link(rel="stylesheet", href="scss/style.scss")
+    link(rel="favicon" href="./static/favicon.ico")
+    block extra_scripts
+  body.bg-secondary
+    div.p-4
+      div#navbar-wrapper
+        nav.navbar.navbar-expand-lg.navbar-secondary.bg-primary.rounded-2.my-4
+          div.container-fluid
+              a(class="navbar-brand" href="#")
+                  img(src="./static/website_logo.png" alt="Hemsidans logga" class="img-fluid" width="256" height="96")
+              button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent")
+                  span.navbar-toggler-icon 
+              div#navbarContent.collapse.navbar-collapse
+                  ul.navbar-nav
+                      each menu_item in menu_items
+                          li.nav-item.row
+                              i(class=menu_item.icon + " bi")
+                              a(href=menu_item.url class="nav-link")=menu_item.text
+      div.bg-primary.text-white.rounded-2
+        div#main-content.p-3
+          block content
+  block bottom

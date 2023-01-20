@@ -1,46 +1,30 @@
-doctype html 
-html(lang="sv")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Svamplista
-    script(type="module", src="js/index.js")
-    link(rel="stylesheet", href="scss/style.scss")
-  body.bg-light.p-4
-  div.bg-secondary.p-4.text-white.border.border-1.rounded-2
-    div#navbar-wrapper
-      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-    div#main-content
-        h1 Svamplista
-        p Nedan hittar du en lista över olika svampar. De är sorterade efter deras typ.
-        div#svampar.d-flex.flex-column
-          each category in mushroom_categories
-            h2=category.title
-            p=category.description
-            div.bg-primary.rounded-3.border-1.border-dark.p-3
-            each mushroom in category.mushrooms
-              h3=mushroom.name 
-              each badge in mushroom.badges
-                span(class="badge " + badge.color)=badge.text
-              button(data-bs-toggle="collapse")
-              .h3
-              div#mushroom.container
-                  div.row
-                    div.col
-                      h4 Om svampen
-                      p=mushroom.about
-                      h4 Utseende
-                      p=mushroom.apperance
-                      h4 Vart hittar man
-                      p=mushroom.location
-                  div.col-6
-                      img.img-fluid(src=mushroom.image, alt="Bild på en " + mushroom.name)
-                      p="Bild på en " + mushroom.name
-                    
-                  
-              
-            
-        
-    
-  
-
+extends layout.pug 
+block title
+    title Svamplista | Svamphemsida
+block content
+  h1 Svamplista
+  p Nedan hittar du en lista över olika svampar. De är sorterade efter deras typ.
+  div#svampar.d-flex.flex-column
+    each category in mushroom_categories
+      h2=category.title
+      p=category.description
+      div.bg-primary.rounded-3.border-1.border-dark.p-3
+        each mushroom in category.mushrooms
+          div.d-flex.flex-row.align-items-center
+            h3=mushroom.name 
+            each badge in mushroom.badges
+              span(class="badge " + badge.color + " px-2")=badge.text
+          a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
+            i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+          div(id=mushroom.id + "-about" class="collapse")
+              div.row
+                div.col
+                  h4 Om svampen
+                  p=mushroom.about
+                  h4 Utseende
+                  p=mushroom.apperance
+                  h4 Vart hittar man
+                  p=mushroom.location
+                div.col-6
+                  img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
+                  p="Bild på en " + mushroom.name

@@ -1,3 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Poppins"); // Importera Poppins som typsnitt
+@import url("http://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800&display=swap"); // Importera Poppins som typsnitt
 $Poppins: "Poppins", sans-serif;
-$bs-font-sans-serif: $Poppins !default;
+$font-family-base: $Poppins !default; // Använd Poppins som standardtypsnitt
+$headings-font-weight: bolder; // Gör rubriker fetstilta

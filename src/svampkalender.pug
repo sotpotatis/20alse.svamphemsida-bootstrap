@@ -1,0 +1,39 @@
+extends layout
+block title
+    title Svampkalender | Svamphemsida
+block content
+    h1 Svampkalender
+    p Nedan hittar du en "kalender" som ungefär visar när på året man kan plocka vissa svampar.
+    #calendar_content
+        .container.row
+            .col-10
+                h2#calendar-month Månad
+            .col-2
+                .row
+                    .col
+                        h1
+                            i#left-button.bi.bi-caret-left-fill
+                    .col
+                        h1
+                            i#right-button.bi.bi-caret-right-fill
+        #calendar-elements.container.row
+            p
+            div.col
+                h3 På väg
+                div#on-the-way-in
+                include calendar_column
+            div.col
+                h3 Stor chans
+                div#prime-time
+                include calendar_column
+            div.col
+                h3 Snart ute
+                div#on-the-way-out
+                include calendar_column
+block bottom
+    script(type="module").
+        pug_config = require("../pug.config.js") // Importera Pug's konfiguration för att hämta variabler
+        calendar = require("./js/calendar.js") // Importera skriptet för kalendern
+        const cal = new calendar.Calendar(document, pug_config.locals.mushroom_categories) // Skapa en ny kalender
+
+        
