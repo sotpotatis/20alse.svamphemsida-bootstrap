@@ -11,18 +11,19 @@ html(lang="sv")
   body.bg-secondary
     div.p-4
       div#navbar-wrapper
-        nav.navbar.navbar-expand-lg.navbar-secondary.bg-primary.rounded-2.my-4
+        nav.navbar.navbar-expand-lg.navbar-secondary.text-white.bg-primary.rounded-2.my-4
           div.container-fluid
               a(class="navbar-brand" href="#")
                   img(src="./static/website_logo.png" alt="Hemsidans logga" class="img-fluid" width="256" height="96")
               button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent")
                   span.navbar-toggler-icon 
               div#navbarContent.collapse.navbar-collapse
-                  ul.navbar-nav
+                  ul.navbar-nav.row.text-center
                       each menu_item in menu_items
-                          li.nav-item.row
-                              i(class=menu_item.icon + " bi")
-                              a(href=menu_item.url class="nav-link")=menu_item.text
+                          li.nav-item.col
+                              p
+                                  i(class=menu_item.icon + " bi")
+                                  a.nav-link.text-white.p-3(href=menu_item.url)=menu_item.text
       div.bg-primary.text-white.rounded-2
         div#main-content.p-3
           block content

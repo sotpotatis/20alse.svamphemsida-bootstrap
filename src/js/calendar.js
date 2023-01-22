@@ -23,7 +23,7 @@ export class CalendarCard {
     }
     createElement(parent) {
         const cardWrapper = document.createElement("div") // Skapa en div som kommer att innehålla svampinfo
-        cardWrapper.classList.add(...["bg-white", "rounded", "text-black", "px-4", "py-3"])
+        cardWrapper.classList.add(...["bg-white", "rounded", "text-black", "px-4", "py-3", "border", "border-light"])
         const cardHeading = document.createElement("h4")
         cardHeading.innerHTML =  this.mushroomData.name // Skapa titel för kortet
         cardWrapper.appendChild(cardHeading) // Lägg till titel i kortet
