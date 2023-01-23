@@ -4,27 +4,31 @@ block title
 block content
   h1 Svamplista
   p Nedan hittar du en lista över olika svampar. De är sorterade efter deras typ.
-  div#svampar.d-flex.flex-column
+  div#mushrooms.d-flex.flex-column
     each category in mushroom_categories
-      h2=category.title
-      p=category.description
-      div.bg-primary.rounded-3.border-1.border-dark.p-3
-        each mushroom in category.mushrooms
-          div.d-flex.flex-row.align-items-center
-            h3=mushroom.name 
-            each badge in mushroom.badges
-              span(class="badge " + badge.color + " px-2")=badge.text
-          a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
-            i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
-          div(id=mushroom.id + "-about" class="collapse")
-              div.row
-                div.col
-                  h4 Om svampen
-                  p=mushroom.about
-                  h4 Utseende
-                  p=mushroom.apperance
-                  h4 Vart hittar man
-                  p=mushroom.location
-                div.col-6
-                  img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
-                  p="Bild på en " + mushroom.name
+      div(id=category.id)
+        h2=category.title
+        p=category.description
+        a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + category.id + "-mushrooms")
+          i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+        div.bg-primary.rounded-3.border-1.border-dark.p-3.collapse(id=category.id + "-mushrooms")
+          each mushroom in category.mushrooms
+            div(id=mushroom.id)
+              div.d-flex.flex-row.align-items-center
+                h3=mushroom.name 
+                each badge in mushroom.badges
+                  span(class="badge " + badge.color + " px-2")=badge.text
+              a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
+                i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+              div(id=mushroom.id + "-about" class="collapse")
+                  div.row
+                    div.col
+                      h4 Om svampen
+                      p=mushroom.about
+                      h4 Utseende
+                      p=mushroom.apperance
+                      h4 Vart hittar man
+                      p=mushroom.location
+                    div.col-6
+                      img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
+                      p="Bild på en " + mushroom.name

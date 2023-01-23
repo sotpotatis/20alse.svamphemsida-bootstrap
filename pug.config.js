@@ -1,9 +1,9 @@
 module.exports = {
   "locals": {
-    "name": "test",
     "mushroom_categories": [
       {
         "title": "Soppar",
+        "id": "soppar",
         "description": "Soppar är bra nybörjarsvampar då de är karaktäristiska och det finns ytterst få soppar som är giftiga. Däremot är de inte heller att underskatta för den mer rutinerade svampletaren. Det är inte mycket som slår en nytillagad smörsopp.",
         "mushrooms": [
           {
@@ -80,6 +80,7 @@ module.exports = {
       },
       {
         "title": "Kantareller",
+        "id": "kantareller",
         "description": "För den ovane kanske man kan tänka sig att släktet Kantareller bara rymmer en svamp, men faktum är att det finns många olika typer av kantareller och många av de är riktigt goda.",
         "mushrooms": [
           {
