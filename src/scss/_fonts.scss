@@ -1,4 +1,7 @@
+/* _fonts.scss
+Här ändrar jag typsnitt som Bootstrap använder för att personalisera min hemsida.
+Jag är ett stort fan av typsnittet Poppins och valde därför att använda detta. */
 @import url("http://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800&display=swap"); // Importera Poppins som typsnitt
-$Poppins: "Poppins", sans-serif;
+$Poppins: "Poppins", sans-serif; // Definiera Poppins-typsnittet och sans-serif som fallback
 $font-family-base: $Poppins !default; // Använd Poppins som standardtypsnitt
-$headings-font-weight: bolder; // Gör rubriker fetstilta
+$headings-font-weight: bolder; // Gör alla rubriker fetstilta

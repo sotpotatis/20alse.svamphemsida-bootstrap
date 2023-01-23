@@ -1,30 +1,56 @@
-doctype html 
+//- layout.pug
+//- Denna fil importeras av alla undersidor på hemsidan.
+//- Tack vare Pug-verktyget kan jag definiera mycket saker som annars skulle kopierats här:
+//- T.ex. kan menyn renderas från en datafil och saker såsom metataggar och bakgrund kan sättas.
+//- Här börjar konceptet med "block" samt "for"-loopar introduceras.
+//- Block fungerar som så att de ger filer som importerar denna fil möjlighet att lägga in innehåll där
+//- "block [namn]" står. Till exempel används detta för att lägga in det huvudsakliga innehållet på varje sida,
+//- som förändras. Exempel samt kommentar om for-looparna hittar du nedan.
+doctype html
 html(lang="sv")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     block title
+    // Ladda in JavaScript-koden som används på hemsidan
+    // Om du kollar på output-koden, alltså det som visas i din webbläsare och i dist/-mappen,
+    // se src/-mappen i källkoden för att se den faktiska källkoden! Filen nedan kommer vara
+    // minifierad med hjälp av bundlern Parcel.
     script(type="module", src="js/index.js")
+    // Ladda in CSS. Denna är också minifierad, se kommentaren ovan.
     link(rel="stylesheet", href="scss/style.scss")
+    // Ladda in faviconen.
     link(rel="favicon" href="./static/favicon.ico")
+    //- Definiera plats för filer som importerar/"extendar" denna template att lägga in skript i
     block extra_scripts
   body.bg-secondary
     div.p-4
+      // Navbar - huvudmeny på hemsidan
       div#navbar-wrapper
         nav.navbar.navbar-expand-lg.navbar-secondary.text-white.bg-primary.rounded-2.my-4
           div.container-fluid
+              // Logga för hemsidan
               a(class="navbar-brand" href="#")
                   img(src="./static/website_logo.png" alt="Hemsidans logga" class="img-fluid" width="256" height="96")
+              // Knapp för att toggla menyn (dyker upp på mobiler)
               button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent")
-                  span.navbar-toggler-icon 
+                  span.navbar-toggler-icon
               div#navbarContent.collapse.navbar-collapse
                   ul.navbar-nav.row.text-center
+                      //- Här är ett exempel varför Pug är så bra! I filen pug.config.js
+                        //- har jag definierat mina menyflikar, så det är bara att iterera över de här!
+                        //- För varje menyflik, lägg till en länk
                       each menu_item in menu_items
                           li.nav-item.col
                               p
+                                  // Ikon för menyfliken (Bootstrap Icons)
                                   i(class=menu_item.icon + " bi")
                                   a.nav-link.text-white.p-3(href=menu_item.url)=menu_item.text
+      // Huvudinnehåll på sidan.
+      //- Här i layout.pug definierar jag bara så att bakgrund och liknande blir rätt inställt,
+      //- sedan används "block content" så att sidor som extendar layout.pug kan lägga in sitt innehåll där.
       div.bg-primary.text-white.rounded-2
         div#main-content.p-3
           block content
+  //- Ifall man skulle vilja lägga in något längst ner på en sida definierar jag ett block för det också.
   block bottom

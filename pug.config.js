@@ -122,7 +122,7 @@ module.exports = {
           }
         ]
       }
-    ],
+    ], // Lista över olika svampkategorier. Det är också här information om alla svampar definieras.
     "menu_items": [
       {
         "url": "./index.pug",
@@ -149,6 +149,32 @@ module.exports = {
         "text": "Kontakt",
         "icon": "bi-envelope-fill"
       }
-    ]
+    ], // Lista över flikar i menyn.
+    "further_reading_websites": [{
+      "title": "Svampguiden",
+      "description": "Information om många olika svampar",
+      "url": "https://svampguiden.com"
+    },
+    {
+      "title": "Skogsskafferiet",
+      "description": "Information om svampar samt andra ätbara ting i naturen",
+      "url": "https://www.skogsskafferiet.se/"
+    },
+    {
+      "title": "Artportalen",
+      "description": "Se vart olika svampar och växter hittats i Sverige",
+      "url": "https://www.artportalen.se/"
+    },
+    {
+      "title": "ICA's svamprecept",
+      "description": "ICA har över 1000 olika recept på svamprätter",
+      "url": "https://www.ica.se/recept/svamp/"
+    },
+    {
+      "title": "Coop's svamprecept",
+      "description": "Coop har drygt 250 olika recept på svamp",
+      "url": "https://www.coop.se/recept/svamp/"
+    }
+    ] // Lista över hemsidor att läsa mer om svampar på (för letarguide-sidan).
   }
 }

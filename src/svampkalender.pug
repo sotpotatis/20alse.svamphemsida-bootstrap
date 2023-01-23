@@ -1,13 +1,24 @@
+//-svampkalender.pug
+//- Denna sida innehåller en kalender som till stor del renderas med hjälp av JavaScript.
+//- "Kalendern" visar vilka svampar som går att plocka under olika månader i tre olika kategorier:
+//- börjar komma, stor chans att hitta, samt på väg ut för säsongen.
 extends layout
 block title
     title Svampkalender | Svamphemsida
 block content
     h1 Svampkalender
-    p Nedan hittar du en "kalender" som ungefär visar när på året man kan plocka vissa svampar.
+    p Nedan hittar du en "kalender" som ungefär visar när på året man kan plocka vissa svampar. Notera att svampsäsonger skiljer sig mycket från år till år. Detta är alltså ämnat att fungera som en fingervisning.
+    // Mycket du ser här nedanför renderas av JavaScript med hjälp av filen som du i källkoden hittar som calendar.js.
+    // Från början är alltså HTML:en nedan rätt så innehållsfattigt och renderas sedan "client side" på användarens dator.
+    // (om du använder inspektorn och läser denna kommentar när du laddat in sidan som en sida i din webbläsare kommer innehållet
+    // nedan alltså ha renderats av kod)
     #calendar-content
         .container.row
+            // "Wrapper" för månad.
             .col-10
+                //- Månaden kommer uppdateras senare med koden till den aktiva månaden.
                 h2#calendar-month Månad
+            // "Wrapper" för knappar för att växla mellan månader.
             .col-2
                 .row
                     .col
@@ -16,24 +27,32 @@ block content
                     .col
                         h1
                             i#right-button.bi.bi-caret-right-fill
+        // "Wrapper" för de tre olika kategorierna svampar kan bli placerade i per månad.
         #calendar-elements.container
             .row
+                // Innehåller svampar som börjar dyka upp
                 p
                 div.col
                     h3 På väg
                     div#on-the-way-in
                     include calendar_column
+                // Innehåller svampar som det är stor/större chans att hitta
                 div.col
                     h3 Stor chans
                     div#prime-time
                     include calendar_column
+                // Innehåller svampar som det börjar bli "ute" att hitta för säsongen.
                 div.col
                     h3 Snart ute
                     div#on-the-way-out
                     include calendar_column
 block bottom
+    // Jag lägger in JavaScript längst ner på sidan som skapar och initierar en kalender.
+    // Jag renderar en skript-tag som importerar den kod som krävs samt skapar själva kalendern
+    // Om du kollar på denna sida från dist/-mappen eller från en webbläsare så är koden
+    // minifierad. Se src/svampkalender.pug för originalkoden.
     script(type="module").
-        pug_config = require("../pug.config.js") // Importera Pug's konfiguration för att hämta variabler
+        pug_config = require("../pug.config.js") // Importera Pug's konfiguration för att hämta variabler (om svampar) från den
         calendar = require("./js/calendar.js") // Importera skriptet för kalendern
         const cal = new calendar.Calendar(document, pug_config.locals.mushroom_categories) // Skapa en ny kalender
 

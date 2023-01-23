@@ -1,5 +1,7 @@
-// Här anpassar jag färgerna.
-// Jag använder primär och sekundära färger i Bootstrap: se nedan.
+/* _colors.scss
+Denna fil anpassar Bootstrap's färger. */
+// Jag använder primär och sekundära färger för bakgrunder och uppdaterar de därför: se nedan.
 $primary: #706e32; // #878543;
 $secondary: #3b4736;
-$text-danger: "#70201a"; // TODO detta behöver fixas.
+$text-danger: #70201a; // TODO detta behöver fixas.
+$link-color: white; // Ändra färgen på länkar till vit

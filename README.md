@@ -30,6 +30,54 @@ för varje svamp.
 Jag har också använt Pug's funktion att separera sidor i block och skapa "templates". På så sätt kan jag definiera saker såsom meny och metataggar en gång (se filen [layout.pug](src/layout.pug))
 och sedan "importera" denna i varje sida jag skapar för att ytterligare minska hur mycket kod jag behöver repetera.
 
+#### Här är en liten "crash-course" i Pug så att du kan förstå hur jag skrivit innehållet för hemsidor:
+
+Först och främst: *Pug är väldigt likt HTML*. Jag har alltid tänkt i och uttryckt mig i HTML-likande syntax när jag byggt upp hemsidan.
+Ett exempel:
+```pug
+body
+    p#exempel(data-example="1")
+        span.text-primary Hej!
+        span=dynamisk_variabel
+```
+Koden ovanför blir i HTML översatt till:
+```html
+<body>
+    <p id="exempel" data-example="1">
+        <span class="text-primary"> Hej!
+        <span>Innehållet av dynamisk_variabel i pug.config.js</span>    
+    </p>
+</body>
+```
+Alltså, man kan notera att de huvudsakliga skillnaderna med Pug är att:
+* Man behöver inte stänga taggar i syntaxen. För att taggar ska vara "barn" till en "föräldertagg" indenterar man.
+* Klasser appliceras med punkter (`.`). Flera klasser kan appliceras efter varandra genom att kedja punkter.
+* ID:n sätts genom en hashtag `#` bredvid taggens namn.
+* Övriga attribut sätts genom en parentes med attribut i.
+* Dynamiska variabler kan sättas i texten genom att använda ett likamedtecken och variabelns namn.
+
+Annat som är bra att känna till är:
+* Då `div`-taggar används ofta inom webbutveckling har Pug lagt in så att man kan strunta i att skriva `div`.
+Följande exempel resulterar båda i att en div skapas:
+```pug
+div#exempel.lite.klasser
+```
+och
+```pug
+#exempel.lite.klasser
+```
+Ger följande output:
+```html
+<div id="exempel" class="lite klasser">
+</div>
+```
+* De huvudsakliga funktionerna jag använder för dynamisk rendering (vilket var det som motiverade användandet av Pug
+från början) är *extends/includes* och *each-loopar*. Jag har skrivit om hur jag använder dessa i `.pug`-filer som använder
+de i [src/-mappen](src). Se bland annat [layout.pug](src/layout.pug) och [calendar_column.pug](src/calendar_column.pug) för info om *extends/includes* (samt den förstnämnda
+även för information om *each-loopar*. Se även [svamplista.pug](src/svamplista.pug) för den fil som mest använder *each-loopar*. Även [letarguide.pug](src/letarguide.pug) använder denna funktion.
+
+Notera att output-HTML alltid finns tillgängligt i [dist/-mappen](dist) ;)
+
 ### PurgeCSS
 
 Detta är ett verktyg som användas för att rensa bort onödig CSS.

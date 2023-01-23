@@ -532,13 +532,22 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"ebWYT":[function(require,module,exports) {
-var _bootstrap = require("bootstrap"); // Importera Bootstrap
-require("bootstrap-icons/font/bootstrap-icons.css") // Importera Bootstrap-icons för ikoner
+/* index.js
+Index.js representerar den koden som laddas på varje sida på hemsidan.
+Det kan verka som ett lite skumt namn, men det är min uppfattning att man
+brukar döpa den till detta i JavaScript.
+Tack vare bundler-verktyget Parcel (se README.md) så kommer require()
+och import-kodraderna här automatiskt att inkluderas och minifieras. */ var _bootstrap = require("bootstrap"); // Importera Bootstrap
+// För ikoner använder jag Bootstrap-Icons, som är utvecklat av Bootstrap själva.
+// De ligger i en CSS-fil som vi importera r
+require("bootstrap-icons/font/bootstrap-icons.css");
+// Nu importerar jag de egna skripten jag skrivit.
+index = require("./indexFunctions.js") // Funktioner jag har skrivit för startsidan
 ;
-index = require("./indexFunctions.js") // Funktioner jag har skrivit för index
+calendar = require("./calendar.js") // Skript för sidan "svampkalender"
 ;
 
-},{"bootstrap":"h36JB","bootstrap-icons/font/bootstrap-icons.css":"87yWV","./indexFunctions.js":"5LJug"}],"h36JB":[function(require,module,exports) {
+},{"bootstrap":"h36JB","bootstrap-icons/font/bootstrap-icons.css":"87yWV","./indexFunctions.js":"5LJug","./calendar.js":"fsVt9"}],"h36JB":[function(require,module,exports) {
 /*!
   * Bootstrap v5.2.2 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -6269,15 +6278,29 @@ var createPopper = /*#__PURE__*/ (0, _createPopperJs.popperGenerator)({
 }); // eslint-disable-next-line import/no-unused-modules
 
 },{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"87yWV":[function() {},{}],"5LJug":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/* indexFunctions.js
+En fil som innehåller lite funktioner för startsidan (index.html) på
+hemsidan. */ /**
+ * För att inte presentera användaren med överväldigande innehåll så vill jag ha pilknappar
+ * där man kan klicka för att öppna och stänga (visa och gömma) information om olika svampar.
+ * Denna funktion kan bindas till eventet onClick() på en av dessa knappar för att hantera byte
+ * av ikonen.
+ * @param {*} button Elementet som är själva ikonknappen.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "collapseButtonClicked", ()=>collapseButtonClicked);
-parcelHelpers.export(exports, "openURL", ()=>openURL);
 function collapseButtonClicked(button) {
+    // Statisk bestämmelse av ikoner för när det knappen kontrollerar är
+    // gömt (collapsed) och när det visas (notCollapsed)
     const icons = {
         notCollapsed: "bi-caret-up-fill",
         collapsed: "bi-caret-down-fill"
     };
+    // Jag har använt mig av data-attribut i HTML. Varje ikonknapp har attributet
+    // data-collapsed satt till antingen "true" eller "false". Detta hjälper koden
+    // att veta vilken klass som ska appliceras.
+    // Att automatiskt gömma och visa innehållet när knappen trycks sköts av Bootstrap!
+    // Det finns en inbyggd klass som heter "collapse" som till och med animerar saker och ting!
     if (button.dataset.collapsed === "true") {
         button.dataset.collapsed = "false";
         button.classList.remove(icons.collapsed);
@@ -6288,8 +6311,227 @@ function collapseButtonClicked(button) {
         button.classList.remove(icons.notCollapsed);
     }
 }
-function openURL(newURL) {
-    window.open(openURL);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fsVt9":[function(require,module,exports) {
+/* calendar.js
+Innehåller kod för att skapa, rendera och uppdatera
+en svampkalender. Svampkalendern inneåller tre olika kolumner
+för att visa när man kan hitta olika svampar. */ // Börja med att sätta lite konstanter
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Definiera klasser: se kommentarer nedan.
+parcelHelpers.export(exports, "CalendarCard", ()=>CalendarCard);
+parcelHelpers.export(exports, "Calendar", ()=>Calendar);
+const minMonthIndex = 5; // Tidigast månad för kalendern: Juni
+const maxMonthIndex = 11; // Senaste månad för kalendern: December
+const monthNames = [
+    "Januari",
+    "Feburari",
+    "Mars",
+    "April",
+    "Maj",
+    "Juni",
+    "Juli",
+    "Augusti",
+    "September",
+    "Oktober",
+    "November",
+    "December"
+];
+class CalendarCard {
+    /**
+     * Ett CalendarCard motsvarar ett "kort" i kalendern, alltså en svamp som visas.
+     * @param {*} mushroomData Data som finns om svampen. Denna data är den som satts i pug.config.js
+     * om varje svamp.
+     */ constructor(mushroomData){
+        this.mushroomData = mushroomData;
+    }
+    /**
+     * Funktion för att rendera upp ett kalenderkort som innehåller informationen om svampen.
+     * @param {*} parent "Förälderelementet" som kortet ska läggas till i.
+     */ createElement(parent) {
+        // Skapa en div som kommer att innehålla kortet med svampinfo och applicera klasser och stilar
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add(...[
+            "bg-white",
+            "rounded",
+            "text-black",
+            "px-4",
+            "py-3",
+            "border",
+            "border-light",
+            "my-3"
+        ]);
+        // Skapa en titel för kortet
+        const cardHeading = document.createElement("h4");
+        cardHeading.innerHTML = this.mushroomData.name;
+        // Lägg till titel i diven vi skapade som ska innehålla information
+        cardWrapper.appendChild(cardHeading);
+        // Skapa en länk så man kan läsa mer om svampen
+        const readMoreLinkParagraph = document.createElement("p");
+        // Inuti <p> taggen vill vi ha en ikon och en länk.
+        // Skapa länken
+        const readMoreLinkLink = document.createElement("a");
+        readMoreLinkLink.href = `/svamplista.html#${this.mushroomData.id}`;
+        readMoreLinkLink.textContent = "L\xe4s mer";
+        // Skapa ikonen och applicera Bootstrap icons-klasser till den
+        const readMoreLinkIcon = document.createElement("i");
+        readMoreLinkIcon.classList.add(...[
+            "bi",
+            "bi-box-arrow-up-right",
+            "mx-1"
+        ]);
+        // Lägg till alla element (ikon och länk) där de ska vara inuti <p>-taggen!
+        readMoreLinkParagraph.appendChild(readMoreLinkLink);
+        readMoreLinkLink.appendChild(readMoreLinkIcon);
+        // ...och lägg till <p>-taggen i det nya kortet!
+        cardWrapper.appendChild(readMoreLinkParagraph);
+        // Lägg till det nya kortet i dess "förälder" satt av argumentet parent (en av kalenderkolumnerna)
+        parent.appendChild(cardWrapper);
+    }
+}
+class Calendar {
+    /**
+     * Klassen Calendar representerar hela svampkalendern.
+     * En kalender innehåller flera CalendarCard, se ovan.
+     * Genom att kalla denna klass på fler ställen kan man skapa flera
+     * svampkalendrar, om man så önskar
+     * @param {*} rootElement "Förälderelementet" där kalendern ska skapas i. Detta element ska innehålla några taggar med
+     * vissa IDn och tomma innehåll för att bli korrekt ifyllda av koden. Dessa IDs kan du hitta nedan i konstruktorn.
+     * @param {*} mushroomCategories Data om alla svampar och dess kategorier. Detta argument ska motsvara
+     * det format (och i mitt fall även det innehåll) som finns i pug.config.js under
+     * "mushroom_categories"
+     */ constructor(rootElement, mushroomCategories){
+        console.log("Initierar en svampkalender i elementet...", rootElement);
+        this.rootElement = rootElement;
+        this.mushroomCategories = mushroomCategories;
+        // Ställ in den valda månaden till den tidigaste månaden och namnet till detsamma.
+        this.selectedMonth = minMonthIndex;
+        this.selectedMonthName = monthNames[this.selectedMonth];
+        // Hämta och spara element som kalendern uppdaterar. Dessa ska finnas i rootElement.
+        this.monthTitle = rootElement.getElementById("calendar-month") // Element för månadstitel
+        ;
+        // Inhämta "förälderelement"/"behållare" för de tre olika sätten som svampar ska visas: om de är på väg,
+        // om det är högsäsong och om de är på väg ut.
+        const onTheWayInWrapper = rootElement.getElementById("on-the-way-in");
+        const primeTimeWrapper = rootElement.getElementById("prime-time");
+        const onTheWayOutWrapper = rootElement.getElementById("on-the-way-out");
+        // Initiera knappar för att växla mellan månader och lägg in event för de.
+        const rightButton = rootElement.getElementById("right-button");
+        const leftButton = rootElement.getElementById("left-button");
+        this.onRightButtonClick = this.onRightButtonClick.bind(this);
+        this.onLeftButtonClick = this.onLeftButtonClick.bind(this);
+        rightButton.addEventListener("click", this.onRightButtonClick);
+        leftButton.addEventListener("click", this.onLeftButtonClick);
+        // Lagra de ovan inhämntade "behållarna" för att lägga in svampar i
+        // i ett objekt
+        this.periodWrappers = {
+            onTheWayIn: onTheWayInWrapper,
+            primeTime: primeTimeWrapper,
+            onTheWayOut: onTheWayOutWrapper
+        };
+        this.updateMonthsView() // Rendera kalendern för första gången.
+        ;
+    }
+    /**
+     * Körs varje gång man har klickat på en knapp för att växla månad i svampkalendern.
+     * @param {*} forward true eller false beroende på om knappen ska leda till att månaden
+     * ökas (true) eller att månaden minskas (false).
+     */ monthButtonClicked(forward) {
+        if (forward) {
+            if (this.selectedMonth < maxMonthIndex) this.selectedMonth++;
+            else this.selectedMonth = minMonthIndex;
+        } else if (this.selectedMonth > minMonthIndex) this.selectedMonth--;
+        else this.selectedMonth = maxMonthIndex;
+        this.selectedMonthName = monthNames[this.selectedMonth] // Updatera månadsnamn
+        ;
+        console.log(`Uppdaterade månad till ${this.selectedMonthName}.`);
+        this.updateMonthsView() // Uppdatera kalendern för att matcha aktuella val
+        ;
+    }
+    /**
+     * "Hjälpfunktion" för att iterera över svampar och deras kategorier för att hitta de svampar 
+     * som ska visas i någon av de tre kategorierna (om de är på väg, om det är högsäsong och 
+     * om de är på väg ut) för en viss månad.
+     * @returns Ett objekt som innehåller nycklar för de tre svampkategorierna samt en lista med svampar
+     * inom respektive kategori.
+     */ getMushroomsForMonth() {
+        let results = {
+            onTheWayIn: [],
+            primeTime: [],
+            onTheWayOut: []
+        };
+        // Iterera över alla svampkategorier
+        for (const mushroomCategory of this.mushroomCategories)// Iterera över alla svampar
+        for (const mushroom of mushroomCategory.mushrooms){
+            // Hämta svampens olika perioder
+            if (mushroom.monthData !== undefined) // Vi vill ha en svamp för varje månad
+            for (const [period, periodData] of Object.entries(mushroom.monthData)){
+                // Månadssiffror i configen är en större än indexet i listan, eftersom index i JavaScript börjar på noll,
+                // men månadsnummer i konfigurationen för läsbarhetens skull börjar på ett.
+                // Därför plussas månadsnumret vi kollar efter i listan på med ett.
+                const selectedMonthNumber = this.selectedMonth + 1;
+                // Om datan när svampen ska inkluderas i kategorin är en lista på månader, kolla om aktuell månad finns i den listan.
+                // Om det är en enskild månad och den stämmer överrens med aktuell månad, inkludera svampen.
+                if (typeof periodData == "object" && periodData.includes(this.selectedMonth) || periodData === this.selectedMonth) {
+                    console.log(`Inkluderar svamp ${mushroom.name} i ${period}...`);
+                    results[period].push(new CalendarCard(mushroom));
+                }
+            }
+            else console.warn(`Det finns ingen månadsdata för svampen ${mushroom.name}.`);
+        }
+        return results;
+    }
+    /**
+     * Uppdaterar en av elementen i this.periodWrappers för att
+     * innehålla de svamparna som är aktuella för den nuvarande månaden. 
+     * @param {*} element Elementet som ska uppdateras.
+     * @param {*} mushrooms Svamparna som ska finnas i elementet.
+     */ updateElementTo(element, mushrooms) {
+        // Rensa element
+        element.innerHTML = "";
+        // Lägg till HTML för varje svamp med hjälp av funktionen createElement
+        // i CalendarCard.
+        if (mushrooms.length > 0) for (const mushroom of mushrooms)mushroom.createElement(element);
+        else {
+            const noMushroomsFoundText = document.createElement("h4");
+            noMushroomsFoundText.innerHTML = "Inga svampar h\xe4r!";
+            noMushroomsFoundText.classList.add(...[
+                "text-secondary"
+            ]);
+            element.appendChild(noMushroomsFoundText);
+        }
+    }
+    /**
+     * Funktion för att uppdatera kalendervyn till den data som ska visas för den aktuellt utvalda
+     * månaden. Detta är huvudfunktionen man ska kalla för att uppdatera gränsnittet.
+     */ updateMonthsView() {
+        console.log("Uppdaterar kalendervyn...");
+        // Börja med att hämta svampar som ska inkluderas i kalendervyn för denna månad.
+        const mushroomsForCurrentMonth = this.getMushroomsForMonth();
+        console.log("H\xe4mtade svampars position f\xf6r denna m\xe5nad: ", mushroomsForCurrentMonth);
+        // Iterera över data för varje kategori i "kalendern":
+        // 1. Börjar komma
+        // 2. Stor chans
+        // 3. Snart ute
+        for (const [periodWrapper, mushroomsInPeriod] of Object.entries(mushroomsForCurrentMonth))// Uppdatera "föräldern" för varje kategori/period i kalendern med de svampar som hittats
+        // i perioden.
+        this.updateElementTo(this.periodWrappers[periodWrapper], mushroomsInPeriod);
+        // Uppdatera så att texten som visar aktuell månad stämmer
+        this.monthTitle.innerHTML = this.selectedMonthName;
+    }
+    /**
+     * Funktion för när någon klickar på högerpilknappen i kalendern
+     * för att gå framåt en månad.
+     */ onRightButtonClick() {
+        this.monthButtonClicked(true);
+    }
+    /**
+     * Funktion för när någon klickar på vänsterpilknappen i kalendern
+     * för att gå bakåt en månad.
+     */ onLeftButtonClick() {
+        this.monthButtonClicked(false);
+    }
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cVgJb","ebWYT"], "ebWYT", "parcelRequire1248")

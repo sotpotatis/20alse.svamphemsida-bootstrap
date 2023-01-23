@@ -1,27 +1,49 @@
-extends layout.pug 
+//-svamplista.pug
+//- Renderar en lista med alla svampar, sorterade efter kategori, med hjälp av Pug's funktion för att rendera
+//- data från listor.
+extends layout.pug
 block title
     title Svamplista | Svamphemsida
 block content
   h1 Svamplista
   p Nedan hittar du en lista över olika svampar. De är sorterade efter deras typ.
   div#mushrooms.d-flex.flex-column
+    //- Här använder jag Pug's each-loop. Jag har i filen pug.config.js konfigurerat svampar
+    //- som JavaScript-object (JSON). Detta gör att vi kan iterera över de här och skapa innehåll för
+    //- varje kategori (då vi kommer åt variabeln "category" för varje kategori), och sedan längre ner för
+    //- varje svamp inom den kategorin (då kallar jag denna variabel "mushroom", se nedan)
     each category in mushroom_categories
       div(id=category.id)
+        // Grundläggande information: kategori och beskrivning av kategorin
         h2=category.title
         p=category.description
+        // Nedan följer knappar för att visa respektive gömma ("toggla") varje kategori. Genom en knapp som har en pil
+        // kan man öppna och stänga kategorier, för att undvika att användaren presenteras med överväldigande mycket innehåll.
+        // Funktionen för att animera och visa/gömma innehållet sköts av Bootstraps egna "collapse"-klass medan funktionen som
+        // uppdaterar knappen använder JavaScript som jag har skrivit.
         a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + category.id + "-mushrooms")
           i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+        // Div/"wrapper" som innehåller alla svampar för kategorin
         div.bg-primary.rounded-3.border-1.border-dark.p-3.collapse(id=category.id + "-mushrooms")
+          //- Här itererar jag över varje svamp i den aktuella kategorin. Se ovan för mer information.
           each mushroom in category.mushrooms
             div(id=mushroom.id)
               div.d-flex.flex-row.align-items-center
-                h3=mushroom.name 
+                h3=mushroom.name
+                //- Svampar kan ha en liten "badge" för att markera intressanta saker med de.
+                //- Till exempel använder jag detta för att markera svampar som kan anses smarriga.
+                //- Om vi har några sådana "badges" för en svamp så skapas de nedan.
                 each badge in mushroom.badges
                   span(class="badge " + badge.color + " px-2")=badge.text
+              // Nedan följer knappar för att visa respektive gömma ("toggla") varje svamp. Genom en knapp som har en pil
+              // kan man öppna och stänga kategorier, för att undvika att användaren presenteras med överväldigande mycket innehåll.
+              // Jag har skrivit mer om dessa svampar i en kommentar ovan vid kategori-divsen: se dessa.
               a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
                 i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+              // Information om svampen.
               div(id=mushroom.id + "-about" class="collapse")
                   div.row
+                    // Textinformation om svampen.
                     div.col
                       h4 Om svampen
                       p=mushroom.about
@@ -29,6 +51,7 @@ block content
                       p=mushroom.apperance
                       h4 Vart hittar man
                       p=mushroom.location
+                    // Bild på svampen.
                     div.col-6
                       img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
                       p="Bild på en " + mushroom.name

@@ -1,4 +1,7 @@
-@import "variables";
-@import "fonts";
-@import "colors";
-@import "~bootstrap/scss/bootstrap";
+/* style.scss
+Denna fil importerar anpassningar av stilar (se de importerade filerna)
+och sedan Bootstraps-huvud-CSS. Viktigt är att anpassningarna importeras innan
+Bootstraps scss-fil, annars appliceras inte anpassningarna (ett problem jag spenderade lång tid på att lösa) */
+@import "fonts"; // Anpassning av typsnitt
+@import "colors"; // Anpassning av färger
+@import "~bootstrap/scss/bootstrap"; // Bootstraps huvud-CSS

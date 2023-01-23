@@ -1,3 +1,3 @@
 # static-mappen
 
-Denna mapp innehåller bildfiler etc.
+Denna mapp innehåller statiska bildfiler och annat statiskt innehåll.
