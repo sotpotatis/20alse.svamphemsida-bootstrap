@@ -49,6 +49,6 @@ block content
         ul
             each further_reading_website in further_reading_websites
                 li
-                    a.text-link(href=further_reading_website.url target="_blank")
+                    a.link-light(href=further_reading_website.url target="_blank")
                         span.fw-bold=further_reading_website.title
                         span=" - " + further_reading_website.description
