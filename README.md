@@ -1,7 +1,7 @@
 # Bootstrap-projekt: egen hemsida om svampar
 
 Detta är mitt projekt för en egen hemsida skapad i Bootstrap som är ett projekt i webbutveckling.
-Temat på hemsidan är att skriva om ätbara svampar
+Temat på hemsidan är att skriva om ätbara svampar.
 
 ## Bakgrund
 
@@ -80,13 +80,17 @@ Notera att output-HTML alltid finns tillgängligt i [dist/-mappen](dist) ;)
 
 ### PurgeCSS
 
-Detta är ett verktyg som användas för att rensa bort onödig CSS.
+Detta är ett verktyg som användas för att rensa bort CSS som inte används av mig men som finns inlagt i t.ex. Bootstrap som jag också använder till projektet.
 
 ## Information
 
-Projektets källkod, alltså den HTML:en som jag skrivit, finns under [src-mappen](src). Med hjälp av magi så tar verktyget `parcel` bort oanvända klasser från Bootstrap-CSS:en och applicerar några egna inställningar (se `src/scss`). Detta verktyg behövs inte att ha installerat om man vill använda hemsidan utan bara när man jobbar på att utveckla den. Själva outputen med rensade CSS-klasser etc., färdigt att läggas på en webbserver, finns under [dist-mappen](dist).
+Projektets källkod, alltså den kod som jag skrivit, finns under [src-mappen](src). Med hjälp av magi så tar verktyget `parcel` bort oanvända klasser från Bootstrap-CSS:en och applicerar några egna inställningar (se `src/scss`). Detta verktyg behövs inte att ha installerat om man vill använda hemsidan utan bara när man jobbar på att utveckla den. Själva outputen med rensade CSS-klasser etc., färdigt att läggas på en webbserver, finns under [dist-mappen](dist).
+Nämnvärt är att en del saker, t.ex skript, i `dist/` har en komprimerad källkod (detta görs automatiskt av Parcel), vilket gör att en JavaScript-fil
+delas upp i flera små filer med mänskligt oläsbar kod. Denna kod injiceras även i vissa HTML-sidor. Man måste i princip alltså kolla `src/` mappen för att se den JavaScript jag skrivit;)
 
-**För utveckling**
+## För utveckling
 
-Detta behövs endast om man vill jobba på hemsidan och är för egen referens.
-För att köra en lokal testserver som uppdateras när man uppdaterar källinnehållet, använd kommandot `npm run dev`.
+Om man vill jobba på hemsidan kan man installera de verktyg som krävs så länge man har Node.JS och NPM installerat.
+
+1. Klona repositoryt och skriv `npm install`
+2. För att köra en lokal testserver som uppdateras när man uppdaterar källinnehållet, använd kommandot `npm run dev`.

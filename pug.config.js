@@ -16,11 +16,11 @@ module.exports = {
               }
             ],
             "about": "Denna matsvamp är en fyrstjärnig sopp och tillhör en av de godare sopparna man kan hitta. Den har också ett karaktäristiskt utseende. Det kan dock ändå vara lite knepigt att hitta ett fint exemplar. Svampen är nämligen som godast när den inte vuxit så längre. Som de flesta soppar tenderar denna att smaka sämre och ha fått påhälsning av kryp och maskar i takt med dess ålder.",
-            "apperance": "Svampen kännetecknas av dess smörfärgade rör på undersidan. I regnig väderlek blir svampen även glansig på hatten. Yngre exemplar har en vit ring runt foten och kan ha en hinna utanför rören. Denna bör man ta bort.",
+            "appearance": "Svampen kännetecknas av dess smörfärgade rör på undersidan. I regnig väderlek blir svampen även glansig på hatten. Yngre exemplar har en vit ring runt foten och kan ha en hinna utanför rören. Denna bör man ta bort.",
             "location": "Svampen kan hittas över hela Sverige men växer i symbios med tall. Då den blir hal och glansig på hatten är det ultimat att plocka den när det är torrt ute, men om man hittar den ute i skogen en regnig dag får man självklart inte missa den.",
             "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Suillus_luteus_475376.jpg",
             "monthData": {
-              "onTheWayIn": [7, 8,],
+              "onTheWayIn": [7, 8],
               "primeTime": 9,
               "onTheWayOut": 10
             }
@@ -35,7 +35,7 @@ module.exports = {
               }
             ],
             "about": "Vi har nog alla hört namnet oavsett våra erfarenheter med svamp. Detta är en femstjärning sopp som är mycket smarrig och har en mild smak med nötiga toner. Svampen är även känd under namnet stensopp.",
-            "apperance": "Foten på svampen är ljusbrun eller vit och knubbig. Hatten kan vara både ljusbrun och mörkbrun. På yngre svampar är rören vita och på äldre är de gula/gulbruna.",
+            "appearance": "Foten på svampen är ljusbrun eller vit och knubbig. Hatten kan vara både ljusbrun och mörkbrun. På yngre svampar är rören vita och på äldre är de gula/gulbruna.",
             "location": "Enligt Artportalen hittar man främst denna svamp i södra Sverige, men den förekommer också på nordligare ställen.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
@@ -49,7 +49,7 @@ module.exports = {
             "id": "bjorksopp",
             "badges": [],
             "about": "En trestjärning matsvamp. Äldre exemplar är inte lika goda som yngre.",
-            "apperance": "Namnet av svampen ger en ledtråd om dess utseende. Foten liknar en björk.",
+            "appearance": "Namnet av svampen ger en ledtråd om dess utseende. Foten liknar en björk.",
             "location": "Förekommer över hela landet.",
             "image": "https://via.placeholder.com/350"
           },
@@ -58,7 +58,7 @@ module.exports = {
             "id": "aspsopp",
             "badges": [],
             "about": "Som man hör på namnet så växer denna sopp tillsammans med asp. Den tillhör strävsopparna.",
-            "apperance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
+            "appearance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
             "location": "Förekommer över hela landet.",
             "image": "https://via.placeholder.com/350"
           },
@@ -67,7 +67,7 @@ module.exports = {
             "id": "tegelsopp",
             "badges": [],
             "about": "Tegelsopp är enligt Svampguiden en av de mer fastare strävsopparna. Svampen är mild och passar likt många andra strävsoppar därför bra att ha tillsammans med andra svampar.",
-            "apperance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
+            "appearance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
             "location": "Förekommer över hela landet.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
@@ -97,7 +97,7 @@ module.exports = {
               }
             ],
             "about": "Kantarellen hör till en våra allra mest kända svampar och har fått smeknamnet \"skogens guld\" av en anledning. Dens popularitet beror på flera faktorer, däribland att den är lätt att känna igen, att den är mångsidig i matlagning, att den ytterst sällan är maskangripen, och sist att det finns få saker som slår smörstekta kantareller.",
-            "apperance": "Svampen är svår att förväxla och karaktäriseras av dess guldskimrande utsida med rör i samma färg som svampen. Hatten kan ibland vara veckad och kantareller kommer i olika former och storlekar. Den enda förväxlingssvampen kallas \"falsk kantarell\" och skiljer sig en hel del från kantarellens utseende. Sök online för att hitta en bild om du är osäker.",
+            "appearance": "Svampen är svår att förväxla och karaktäriseras av dess guldskimrande utsida med rör i samma färg som svampen. Hatten kan ibland vara veckad och kantareller kommer i olika former och storlekar. Den enda förväxlingssvampen kallas \"falsk kantarell\" och skiljer sig en hel del från kantarellens utseende. Sök online för att hitta en bild om du är osäker.",
             "location": "Arten förekommer i löv- och barrskogar i hela Sverige, däremot begränsat i Norrlands inland och fjällen.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
@@ -111,7 +111,7 @@ module.exports = {
             "id": "svart-trumpetsvamp",
             "badges": [],
             "about": "Svart trumpetsvamp är en riktigt god svamp och i mitt tycke är den underskattad. Detta kanske beror på att den är ytterst sällsynt.",
-            "apperance": "Svart trumpetsvamp har en trattformad hatt med tunt kött.",
+            "appearance": "Svart trumpetsvamp har en trattformad hatt med tunt kött.",
             "location": "Denna svamp hittar man ofta dold bland mossa i löv- och blandskogar. Den förekommer (men är mer sällsynt) i norra delar av Sverige.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
@@ -124,9 +124,9 @@ module.exports = {
             "name": "Trattkantarell",
             "id": "trattkantarell",
             "badges": [],
-            "about": "TODO",
-            "apperance": "TODO",
-            "location": "TODO",
+            "about": "Här har vi en riktigt smarrig, fyrstjärning matsvamp som dessutom inte har några giftiga förväxlingssvampar om du inte är riktigt slarvig. Ofta växer flera trattkantareller nära varandra, så se till att titta efter ordentligt om du hittar en!",
+            "appearance": "Hatten är tunn och brun eller ljusbrun och foten är gul. Hatten har skivor som når ner en bit på foten.",
+            "location": "Förekommer över hela landet och trivs i mossig barrskog.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": 6,

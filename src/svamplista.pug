@@ -28,30 +28,30 @@ block content
           //- Här itererar jag över varje svamp i den aktuella kategorin. Se ovan för mer information.
           each mushroom in category.mushrooms
             div(id=mushroom.id)
-              div.d-flex.flex-row.align-items-center
+              div.d-flex.flex-row.align-items-center.gap-2
                 h3=mushroom.name
                 //- Svampar kan ha en liten "badge" för att markera intressanta saker med de.
                 //- Till exempel använder jag detta för att markera svampar som kan anses smarriga.
                 //- Om vi har några sådana "badges" för en svamp så skapas de nedan.
                 each badge in mushroom.badges
-                  span(class="badge " + badge.color + " px-2")=badge.text
+                  span(class="badge px-2 px-2 fs-6 " + badge.color)=badge.text
               // Nedan följer knappar för att visa respektive gömma ("toggla") varje svamp. Genom en knapp som har en pil
               // kan man öppna och stänga kategorier, för att undvika att användaren presenteras med överväldigande mycket innehåll.
               // Jag har skrivit mer om dessa svampar i en kommentar ovan vid kategori-divsen: se dessa.
               a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
                 i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
               // Information om svampen.
-              div(id=mushroom.id + "-about" class="collapse")
+              div.collapse.container-fluid(id=mushroom.id + "-about")
                   div.row
                     // Textinformation om svampen.
-                    div.col
+                    div.col-md-8.col-sm-12
                       h4 Om svampen
                       p=mushroom.about
                       h4 Utseende
-                      p=mushroom.apperance
+                      p=mushroom.appearance
                       h4 Vart hittar man
                       p=mushroom.location
                     // Bild på svampen.
-                    div.col-6
+                    div.col-md-4.col-sm-12
                       img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
                       p="Bild på en " + mushroom.name

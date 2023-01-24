@@ -37,8 +37,10 @@ export class CalendarCard {
      */
     createElement(parent) {
         // Skapa en div som kommer att innehålla kortet med svampinfo och applicera klasser och stilar.
-        const cardWrapper = document.createElement("div") 
-        cardWrapper.classList.add(...["bg-white", "rounded", "text-black", "px-4", "py-3", "border", "border-light", "my-3", "mx-4", "row"])
+        const cardWrapper = document.createElement("div")
+        const cardRow = document.createElement("div")
+        cardWrapper.classList.add(...["row"])
+        cardRow.classList.add(...["bg-white", "align-items-center", "rounded", "text-black", "px-4", "py-3", "border", "border-light", "my-3", "mx-4", "row", "flex-grow-0", "flex-shrink-0"])
         // Vi vill åstadkomma ett kort som har en titel och länk som en kolumn och en bild som en kolumn,
         // bredvid varandra. Därför behöver vi skapa två behållare som ska läggas till i cardWrapper.
         const [titleWrapper, imageWrapper] = [document.createElement("div"), document.createElement("div")]
@@ -64,16 +66,24 @@ export class CalendarCard {
         titleWrapper.appendChild(readMoreLinkParagraph)
         // Sen vill vi ha en bild på svampen också! En bild säger mer än tusen ord.
         const cardImage = document.createElement("img")
-        cardImage.classList.add("w-100")
+        cardImage.classList.add(...["img-fluid"])
         cardImage.src = this.mushroomData.image
         cardImage.alt = `Bild som visar en ${this.mushroomData.name.toLowerCase()}`
         imageWrapper.appendChild(cardImage)
         // Vi lägger till de ovan nämnda kolumnerna i kortet.
-        // Vi applicerar också samma klasser till båda till.
+        // Vi applicerar också liknande klasser till båda.
         for (const childWrapper of [titleWrapper, imageWrapper]) {
-            childWrapper.classList.add(childWrapper === titleWrapper ? "col-8" : "col-4")
-            cardWrapper.appendChild(childWrapper)
+            let classesToAppend = []
+            if (childWrapper === titleWrapper){
+                classesToAppend.push(...["col-md-8", "col-sm-12"])
+            }
+            else {
+                classesToAppend.push(...["col-md-4", "col-sm-12"])
+            }
+            childWrapper.classList.add(...classesToAppend)
+            cardRow.appendChild(childWrapper)
         }
+        cardWrapper.appendChild(cardRow)
         // Lägg till det nya kortet i dess "förälder" satt av argumentet parent (en av kalenderkolumnerna)
         parent.appendChild(cardWrapper)
     }

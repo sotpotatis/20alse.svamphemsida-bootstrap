@@ -42,7 +42,7 @@ html(lang="sv")
                         //- För varje menyflik, lägg till en länk
                       each menu_item in menu_items
                           li.nav-item.col
-                              p
+                              p.d-flex.flex-row.align-items-center
                                   // Ikon för menyfliken (Bootstrap Icons)
                                   i(class=menu_item.icon + " bi")
                                   a.nav-link.text-white.p-3(href=menu_item.url)=menu_item.text

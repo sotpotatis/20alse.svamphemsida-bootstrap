@@ -13,39 +13,36 @@ block content
     // (om du använder inspektorn och läser denna kommentar när du laddat in sidan som en sida i din webbläsare kommer innehållet
     // nedan alltså ha renderats av kod)
     #calendar-content
-        .container.row
-            // "Wrapper" för månad.
-            .col-10
-                //- Månaden kommer uppdateras senare med koden till den aktiva månaden.
-                h2#calendar-month Månad
-            // "Wrapper" för knappar för att växla mellan månader.
-            .col-2
-                .row
-                    .col
-                        h1
-                            i#left-button.bi.bi-caret-left-fill
-                    .col
-                        h1
-                            i#right-button.bi.bi-caret-right-fill
-        // "Wrapper" för de tre olika kategorierna svampar kan bli placerade i per månad.
-        #calendar-elements.container.align-content-around
+        .container-fluid
             .row
+                // "Wrapper" för månad.
+                .col-md-10.col-sm-6
+                    //- Månaden kommer uppdateras senare med koden till den aktiva månaden.
+                    h2#calendar-month Månad
+                // "Wrapper" för knappar för att växla mellan månader.
+                .col-md-2.col-sm-6
+                    .row
+                        .col
+                            h1
+                                i#left-button.bi.bi-caret-left-fill
+                        .col
+                            h1
+                                i#right-button.bi.bi-caret-right-fill
+            // "Wrapper" för de tre olika kategorierna svampar kan bli placerade i per månad.
+            #calendar-elements.row.align-content-around
                 // Innehåller svampar som börjar dyka upp
                 p
-                div.col
+                div.col-xl-4.col-sm-12
                     h3 På väg
-                    div#on-the-way-in
-                    include calendar_column
+                    div#on-the-way-in.container
                 // Innehåller svampar som det är stor/större chans att hitta
-                div.col
+                div.col-xl-4.col-sm-12
                     h3 Stor chans
-                    div#prime-time
-                    include calendar_column
+                    div#prime-time.container
                 // Innehåller svampar som det börjar bli "ute" att hitta för säsongen.
-                div.col
+                div.col-xl-4.col-sm-12
                     h3 Snart ute
-                    div#on-the-way-out
-                    include calendar_column
+                    div#on-the-way-out.container
 block bottom
     // Jag lägger in JavaScript längst ner på sidan som skapar och initierar en kalender.
     // Jag renderar en skript-tag som importerar den kod som krävs samt skapar själva kalendern
