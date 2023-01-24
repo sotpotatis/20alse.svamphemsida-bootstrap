@@ -37,7 +37,7 @@ module.exports = {
             "about": "Vi har nog alla hört namnet oavsett våra erfarenheter med svamp. Detta är en femstjärning sopp som är mycket smarrig och har en mild smak med nötiga toner. Svampen är även känd under namnet stensopp.",
             "apperance": "Foten på svampen är ljusbrun eller vit och knubbig. Hatten kan vara både ljusbrun och mörkbrun. På yngre svampar är rören vita och på äldre är de gula/gulbruna.",
             "location": "Enligt Artportalen hittar man främst denna svamp i södra Sverige, men den förekommer också på nordligare ställen.",
-            "image": "https://via.placeholder.net/32",
+            "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": [6, 7, 8],
               "primeTime": [9, 10, 11],
@@ -51,7 +51,7 @@ module.exports = {
             "about": "En trestjärning matsvamp. Äldre exemplar är inte lika goda som yngre.",
             "apperance": "Namnet av svampen ger en ledtråd om dess utseende. Foten liknar en björk.",
             "location": "Förekommer över hela landet.",
-            "image": "https://via.placeholder.net/32"
+            "image": "https://via.placeholder.com/350"
           },
           {
             "name": "Aspsopp",
@@ -60,7 +60,7 @@ module.exports = {
             "about": "Som man hör på namnet så växer denna sopp tillsammans med asp. Den tillhör strävsopparna.",
             "apperance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
             "location": "Förekommer över hela landet.",
-            "image": "https://via.placeholder.net/32"
+            "image": "https://via.placeholder.com/350"
           },
           {
             "name": "Tegelsopp",
@@ -69,7 +69,7 @@ module.exports = {
             "about": "Tegelsopp är enligt Svampguiden en av de mer fastare strävsopparna. Svampen är mild och passar likt många andra strävsoppar därför bra att ha tillsammans med andra svampar.",
             "apperance": "Hatten är rödbrun eller orange. Rören är vita. Om man skär svampen är snitten rodnande, men sedan övergår de till att bli svartare.",
             "location": "Förekommer över hela landet.",
-            "image": "https://via.placeholder.net/32",
+            "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": [7, 8],
               "primeTime": [9, 10],
@@ -79,9 +79,9 @@ module.exports = {
         ]
       },
       {
-        "title": "Kantareller",
-        "id": "kantareller",
-        "description": "För den ovane kanske man kan tänka sig att släktet Kantareller bara rymmer en svamp, men faktum är att det finns många olika typer av kantareller och många av de är riktigt goda.",
+        "title": "Kantareller & dess kompisar",
+        "id": "kantareller-och-kompisar",
+        "description": "Släktet kantareller rymmer flera svampar, men jag har slagit ihop kantareller och väldigt snarlika besläktade svampar inom grannarter.",
         "mushrooms": [
           {
             "name": "Kantarell",
@@ -99,7 +99,7 @@ module.exports = {
             "about": "Kantarellen hör till en våra allra mest kända svampar och har fått smeknamnet \"skogens guld\" av en anledning. Dens popularitet beror på flera faktorer, däribland att den är lätt att känna igen, att den är mångsidig i matlagning, att den ytterst sällan är maskangripen, och sist att det finns få saker som slår smörstekta kantareller.",
             "apperance": "Svampen är svår att förväxla och karaktäriseras av dess guldskimrande utsida med rör i samma färg som svampen. Hatten kan ibland vara veckad och kantareller kommer i olika former och storlekar. Den enda förväxlingssvampen kallas \"falsk kantarell\" och skiljer sig en hel del från kantarellens utseende. Sök online för att hitta en bild om du är osäker.",
             "location": "Arten förekommer i löv- och barrskogar i hela Sverige, däremot begränsat i Norrlands inland och fjällen.",
-            "image": "https://via.placeholder.net/32",
+            "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": 6,
               "primeTime": [7, 8, 9],
@@ -113,7 +113,21 @@ module.exports = {
             "about": "Svart trumpetsvamp är en riktigt god svamp och i mitt tycke är den underskattad. Detta kanske beror på att den är ytterst sällsynt.",
             "apperance": "Svart trumpetsvamp har en trattformad hatt med tunt kött.",
             "location": "Denna svamp hittar man ofta dold bland mossa i löv- och blandskogar. Den förekommer (men är mer sällsynt) i norra delar av Sverige.",
-            "image": "https://via.placeholder.net/32",
+            "image": "https://via.placeholder.com/350",
+            "monthData": {
+              "onTheWayIn": 6,
+              "primeTime": [7, 8, 9],
+              "onTheWayOut": 10
+            }
+          },
+          {
+            "name": "Trattkantarell",
+            "id": "trattkantarell",
+            "badges": [],
+            "about": "TODO",
+            "apperance": "TODO",
+            "location": "TODO",
+            "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": 6,
               "primeTime": [7, 8, 9],

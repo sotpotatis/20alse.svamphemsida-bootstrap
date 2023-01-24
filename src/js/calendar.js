@@ -36,17 +36,20 @@ export class CalendarCard {
      * @param {*} parent "Förälderelementet" som kortet ska läggas till i.
      */
     createElement(parent) {
-        // Skapa en div som kommer att innehålla kortet med svampinfo och applicera klasser och stilar
+        // Skapa en div som kommer att innehålla kortet med svampinfo och applicera klasser och stilar.
         const cardWrapper = document.createElement("div") 
-        cardWrapper.classList.add(...["bg-white", "rounded", "text-black", "px-4", "py-3", "border", "border-light", "my-3"])
+        cardWrapper.classList.add(...["bg-white", "rounded", "text-black", "px-4", "py-3", "border", "border-light", "my-3", "mx-4", "row"])
+        // Vi vill åstadkomma ett kort som har en titel och länk som en kolumn och en bild som en kolumn,
+        // bredvid varandra. Därför behöver vi skapa två behållare som ska läggas till i cardWrapper.
+        const [titleWrapper, imageWrapper] = [document.createElement("div"), document.createElement("div")]
         // Skapa en titel för kortet
         const cardHeading = document.createElement("h4")
         cardHeading.innerHTML = this.mushroomData.name
         // Lägg till titel i diven vi skapade som ska innehålla information
-        cardWrapper.appendChild(cardHeading)
+        titleWrapper.appendChild(cardHeading)
         // Skapa en länk så man kan läsa mer om svampen
         const readMoreLinkParagraph = document.createElement("p")
-        // Inuti <p> taggen vill vi ha en ikon och en länk.
+        // Inuti <p> taggen, som innehåller länken, vill vi ha en ikon och en länk.
         // Skapa länken
         const readMoreLinkLink = document.createElement("a")
         readMoreLinkLink.href = `/svamplista.html#${this.mushroomData.id}`
@@ -58,7 +61,19 @@ export class CalendarCard {
         readMoreLinkParagraph.appendChild(readMoreLinkLink)
         readMoreLinkLink.appendChild(readMoreLinkIcon)
         // ...och lägg till <p>-taggen i det nya kortet!
-        cardWrapper.appendChild(readMoreLinkParagraph)
+        titleWrapper.appendChild(readMoreLinkParagraph)
+        // Sen vill vi ha en bild på svampen också! En bild säger mer än tusen ord.
+        const cardImage = document.createElement("img")
+        cardImage.classList.add("w-100")
+        cardImage.src = this.mushroomData.image
+        cardImage.alt = `Bild som visar en ${this.mushroomData.name.toLowerCase()}`
+        imageWrapper.appendChild(cardImage)
+        // Vi lägger till de ovan nämnda kolumnerna i kortet.
+        // Vi applicerar också samma klasser till båda till.
+        for (const childWrapper of [titleWrapper, imageWrapper]) {
+            childWrapper.classList.add(childWrapper === titleWrapper ? "col-8" : "col-4")
+            cardWrapper.appendChild(childWrapper)
+        }
         // Lägg till det nya kortet i dess "förälder" satt av argumentet parent (en av kalenderkolumnerna)
         parent.appendChild(cardWrapper)
     }
