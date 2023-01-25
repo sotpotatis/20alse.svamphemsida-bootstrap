@@ -139,7 +139,7 @@ module.exports = {
       {
         "title": "Taggsvampar",
         "id": "taggsvampar",
-        "description": "Endast fåtalet taggsvampar är eftertraktade och ätliga, men om du hittar en ätbar taggsvamp är det som att ha funnit guld.",
+        "description": "Endast en taggsvamp är eftertraktade och ätliga, men om du hittar en denne är det som att ha funnit guld.",
         "mushrooms": [
           {
             "name": "Blek taggsvamp",
@@ -153,6 +153,46 @@ module.exports = {
             "about": "En femstjärning och otroligt smarrig men relativt sällsynt. Har inga farliga förväxlingssvampar.",
             "appearance": "Blek färg samt små \"taggar\" under hatten. Trillar lätt sönder vid tryck.",
             "location": "Förekommer i många olika skogstyper i Sverige.",
+            "image": "https://via.placeholder.com/350",
+            "monthData": {
+              "onTheWayIn": 6,
+              "primeTime": [7, 8, 9],
+              "onTheWayOut": 10
+            }
+          }
+        ],
+      },
+        {
+        "title": "Taggsvampar",
+        "id": "taggsvampar",
+        "description": "Endast en taggsvamp är eftertraktade och ätliga, men om du hittar en denne är det som att ha funnit guld.",
+        "mushrooms": [
+          {
+            "name": "Blek taggsvamp",
+            "id": "blek-taggsvamp",
+            "badges": [
+              {
+                "text": "smarrig",
+                "color": "bg-success"
+              }
+            ],
+            "about": "En femstjärning och otroligt smarrig men relativt sällsynt. Har inga farliga förväxlingssvampar.",
+            "appearance": "Blek färg samt små \"taggar\" under hatten. Trillar lätt sönder vid tryck.",
+            "location": "Förekommer i många olika skogstyper i Sverige.",
+            "image": "https://via.placeholder.com/350",
+            "monthData": {
+              "onTheWayIn": 6,
+              "primeTime": [7, 8, 9],
+              "onTheWayOut": 10
+            }
+          },
+          {
+            "name": "Brödticka",
+            "id": "brodticka",
+            "badges": [],
+            "about": "En enstjärning matsvamp som till skillnad från sin kollega, blek taggsvamp, inte är ansedd som någon god matsvamp. Den är däremot ätlig, men endast som ung. Som äldre är den inte giftig, men oaptitlig.",
+            "appearance": "Som namnet antyder påminner färgen på hatten om bröd. Undersidan samt foten är vit och kan vara orangefläckig.",
+            "location": "",
             "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": 6,
