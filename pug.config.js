@@ -113,7 +113,7 @@ module.exports = {
             "about": "Svart trumpetsvamp är en riktigt god svamp och i mitt tycke är den underskattad. Detta kanske beror på att den är ytterst sällsynt.",
             "appearance": "Svart trumpetsvamp har en trattformad hatt med tunt kött.",
             "location": "Denna svamp hittar man ofta dold bland mossa i löv- och blandskogar. Den förekommer (men är mer sällsynt) i norra delar av Sverige.",
-            "image": "https://via.placeholder.com/350",
+            "image": "./static/svampbilder/trattkantareller.png",
             "monthData": {
               "onTheWayIn": 6,
               "primeTime": [7, 8, 9],
@@ -127,6 +127,32 @@ module.exports = {
             "about": "Här har vi en riktigt smarrig, fyrstjärning matsvamp som dessutom inte har några giftiga förväxlingssvampar om du inte är riktigt slarvig. Ofta växer flera trattkantareller nära varandra, så se till att titta efter ordentligt om du hittar en!",
             "appearance": "Hatten är tunn och brun eller ljusbrun och foten är gul. Hatten har skivor som når ner en bit på foten.",
             "location": "Förekommer över hela landet och trivs i mossig barrskog.",
+            "image": "./static/svampbilder/trattkantareller.png",
+            "monthData": {
+              "onTheWayIn": 6,
+              "primeTime": [7, 8, 9],
+              "onTheWayOut": 10
+            }
+          }
+        ]
+      },
+      {
+        "title": "Taggsvampar",
+        "id": "taggsvampar",
+        "description": "Endast fåtalet taggsvampar är eftertraktade och ätliga, men om du hittar en ätbar taggsvamp är det som att ha funnit guld.",
+        "mushrooms": [
+          {
+            "name": "Blek taggsvamp",
+            "id": "blek-taggsvamp",
+            "badges": [
+              {
+                "text": "smarrig",
+                "color": "bg-success"
+              }
+            ],
+            "about": "En femstjärning och otroligt smarrig men relativt sällsynt. Har inga farliga förväxlingssvampar.",
+            "appearance": "Blek färg samt små \"taggar\" under hatten. Trillar lätt sönder vid tryck.",
+            "location": "Förekommer i många olika skogstyper i Sverige.",
             "image": "https://via.placeholder.com/350",
             "monthData": {
               "onTheWayIn": 6,
