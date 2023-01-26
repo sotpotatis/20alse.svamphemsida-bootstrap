@@ -18,5 +18,5 @@ if (collapseButtons.length > 0){
     for (const collapseButton of collapseButtons){
         collapseButton.addEventListener("click", ()=>{index.collapseButtonClicked(collapseButton)})
     }
-    console.log(`Lade till en ${collapseButtons.length} expanderbara knappar på sidan.`)
+    console.log(`Lade till ${collapseButtons.length}st expanderbara knappar på sidan.`)
 }

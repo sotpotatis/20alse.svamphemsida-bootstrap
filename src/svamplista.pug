@@ -36,7 +36,8 @@ block content
           each mushroom in category.mushrooms
             div(id=mushroom.id)
               // Titel och eventuella "badges" för svampen
-              .d-flex.flex-row.align-items-center.gap-2
+              // flex-wrap för mobilkompatibilitet!
+              .d-flex.flex-row.align-items-center.gap-2.flex-wrap
                 h3= mushroom.name
                 //- Svampar kan ha en liten "badge" för att markera intressanta saker med de.
                 //- Till exempel använder jag detta för att markera svampar som kan anses smarriga.
