@@ -1,6 +1,6 @@
-/* indexFunctions.js
-En fil som innehåller lite funktioner för startsidan (index.html) på
-hemsidan. */
+/* collapsibleButtons.js
+En fil som innehåller funktioner för att skapa dropdown-knappar med
+Bootstrap's collapse-funktion. */
 
 /**
  * För att inte presentera användaren med överväldigande innehåll så vill jag ha pilknappar

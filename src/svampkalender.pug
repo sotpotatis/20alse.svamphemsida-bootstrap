@@ -49,6 +49,6 @@ block bottom
   // Om du kollar på denna sida från dist/-mappen eller från en webbläsare så är koden
   // minifierad. Se src/svampkalender.pug för originalkoden.
   script(type="module").
-    pug_config = require("../pug.config.js"); // Importera Pug's konfiguration för att hämta variabler (om svampar) från den
-    calendar = require("./js/calendar.js"); // Importera skriptet för kalendern
+    const pug_config = require("../pug.config.js"); // Importera Pug's konfiguration för att hämta variabler (om svampar) från den
+    const calendar = require("./js/calendar.js"); // Importera skriptet för kalendern
     const cal = new calendar.Calendar(document, pug_config.locals.mushroom_categories); // Skapa en ny kalender
