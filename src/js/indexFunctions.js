@@ -10,25 +10,26 @@ hemsidan. */
  * @param {*} button Elementet som är själva ikonknappen.
  */
 export function collapseButtonClicked(button) {
-    // Statisk bestämmelse av ikoner för när det knappen kontrollerar är
-    // gömt (collapsed) och när det visas (notCollapsed)
-    const icons = {
-        notCollapsed: "bi-caret-up-fill",
-        collapsed: "bi-caret-down-fill"
-    }
-    // Jag har använt mig av data-attribut i HTML. Varje ikonknapp har attributet
-    // data-collapsed satt till antingen "true" eller "false". Detta hjälper koden
-    // att veta vilken klass som ska appliceras.
-    // Att automatiskt gömma och visa innehållet när knappen trycks sköts av Bootstrap!
-    // Det finns en inbyggd klass som heter "collapse" som till och med animerar saker och ting!
-    if (button.dataset.collapsed === "true") { // Om det knappen just nu kontrollerar är gömt
-        button.dataset.collapsed = "false"
-        button.classList.remove(icons.collapsed)
-        button.classList.add(icons.notCollapsed)
-    }
-    else { // Om det knappen just nu kontrollerar visas
-        button.dataset.collapsed = "true"
-        button.classList.add(icons.collapsed)
-        button.classList.remove(icons.notCollapsed)
-    }
+  // Statisk bestämmelse av ikoner för när det knappen kontrollerar är
+  // gömt (collapsed) och när det visas (notCollapsed)
+  const icons = {
+    notCollapsed: "bi-caret-up-fill",
+    collapsed: "bi-caret-down-fill",
+  };
+  // Jag har använt mig av data-attribut i HTML. Varje ikonknapp har attributet
+  // data-collapsed satt till antingen "true" eller "false". Detta hjälper koden
+  // att veta vilken klass som ska appliceras.
+  // Att automatiskt gömma och visa innehållet när knappen trycks sköts av Bootstrap!
+  // Det finns en inbyggd klass som heter "collapse" som till och med animerar saker och ting!
+  if (button.dataset.collapsed === "true") {
+    // Om det knappen just nu kontrollerar är gömt
+    button.dataset.collapsed = "false";
+    button.classList.remove(icons.collapsed);
+    button.classList.add(icons.notCollapsed);
+  } else {
+    // Om det knappen just nu kontrollerar visas
+    button.dataset.collapsed = "true";
+    button.classList.add(icons.collapsed);
+    button.classList.remove(icons.notCollapsed);
+  }
 }

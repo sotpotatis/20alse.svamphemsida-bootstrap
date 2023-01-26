@@ -94,3 +94,16 @@ Om man vill jobba på hemsidan kan man installera de verktyg som krävs så län
 
 1. Klona repositoryt och skriv `npm install`
 2. För att köra en lokal testserver som uppdateras när man uppdaterar källinnehållet, använd kommandot `npm run dev`.
+
+## Övrigt
+
+### Angående commits
+
+Commit-nummer 8fbbdbf6f872840ef4726fb9c1f2e0060d57f1e9 (se [här](https://git.ssis.nu/albin/bootstrap/-/commit/8fbbdbf6f872840ef4726fb9c1f2e0060d57f1e9))
+pushade i princip allt arbete på hemsidan jag gjorde under December. Anledningen till att det är en (väldigt stor) commit är att jag experimenterade med en hel
+del grejer. Exempelvis innan jag testade Pug och fick ok att använda det i uppgiften så testade jag [Handlebars](https://handlebarsjs.com/) och [Nunjuncks](https://mozilla.github.io/nunjucks/). Jag ville inte pusha kod som sedan
+skulle visat sig radikalt förändras, så jag lät den nya tekniken marinera ett tag.
+
+### Bildkälla för svamparna
+
+Bilderna har laddats upp under https://20alse.ssis.nu/svampbilder. Hemsidan nämner licenserna för bilderna om sådana finns.

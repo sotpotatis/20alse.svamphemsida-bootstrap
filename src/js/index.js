@@ -8,7 +8,7 @@ och import-kodraderna här automatiskt att inkluderas och minifieras. */
 import * as bootstrap from "bootstrap"; // Importera Bootstrap
 // För ikoner använder jag Bootstrap-Icons, som är utvecklat av Bootstrap själva.
 // De ligger i en CSS-fil som vi importera r
-require("bootstrap-icons/font/bootstrap-icons.css")
+require("bootstrap-icons/font/bootstrap-icons.css");
 // Nu importerar jag de egna skripten jag skrivit.
-index = require("./indexFunctions.js") // Funktioner jag har skrivit för startsidan
-calendar = require("./calendar.js") // Skript för sidan "svampkalender"
+index = require("./indexFunctions.js"); // Funktioner jag har skrivit för startsidan
+calendar = require("./calendar.js"); // Skript för sidan "svampkalender"

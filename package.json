@@ -13,6 +13,7 @@
     "@parcel/config-default": "^2.8.0",
     "@parcel/reporter-dev-server": "^2.8.0",
     "@parcel/transformer-pug": "^2.8.0",
+    "@parcel/transformer-sass": "^2.8.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.10.3",
@@ -22,11 +23,11 @@
     "sass": "^1.56.1"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.0",
     "buffer": "^5.7.1",
     "crypto-browserify": "^3.12.0",
     "events": "^3.3.0",
     "node-sass": "^7.0.3",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0"
   }

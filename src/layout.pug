@@ -20,37 +20,46 @@ html(lang="sv")
     // Ladda in CSS. Denna är också minifierad, se kommentaren ovan.
     link(rel="stylesheet", href="scss/style.scss")
     // Ladda in faviconen.
-    link(rel="favicon" href="./static/favicon.ico" type="image/x-icon")
+    link(rel="favicon", href="./static/favicon.ico", type="image/x-icon")
     //- Definiera plats för filer som importerar/"extendar" denna template att lägga in skript i
     block extra_scripts
   body.bg-secondary
-    div.p-4
+    #main.p-4
       // Navbar - huvudmeny på hemsidan
-      div#navbar-wrapper
+      #navbar-wrapper
         nav.navbar.navbar-expand-lg.navbar-secondary.text-white.bg-primary.rounded-2.my-4
-          div.container-fluid
-              // Logga för hemsidan
-              a(class="navbar-brand" href="#")
-                  img(src="./static/website_logo.png" alt="Hemsidans logga" class="img-fluid" width="256" height="96")
-              // Knapp för att toggla menyn (dyker upp på mobiler)
-              button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent")
-                  span.navbar-toggler-icon
-              div#navbarContent.collapse.navbar-collapse
-                  ul.navbar-nav.row.text-center
-                      //- Här är ett exempel varför Pug är så bra! I filen pug.config.js
-                        //- har jag definierat mina menyflikar, så det är bara att iterera över de här!
-                        //- För varje menyflik, lägg till en länk
-                      each menu_item in menu_items
-                          li.nav-item.col
-                              p.d-flex.flex-row.align-items-center
-                                  // Ikon för menyfliken (Bootstrap Icons)
-                                  i(class=menu_item.icon + " bi")
-                                  a.nav-link.text-white.p-3(href=menu_item.url)=menu_item.text
+          .container-fluid
+            // Logga för hemsidan
+            a.navbar-brand(href="#")
+              img.img-fluid(
+                src="./static/website_logo.png",
+                alt="Hemsidans logga",
+                width="256",
+                height="96"
+              )
+            // Knapp för att toggla menyn (dyker upp på mobiler)
+            button.navbar-toggler(
+              type="button",
+              data-bs-toggle="collapse",
+              data-bs-target="#navbarContent",
+              aria-controls="navbarContent"
+            )
+              span.navbar-toggler-icon
+            #navbarContent.collapse.navbar-collapse
+              ul.navbar-nav.row.text-center
+                //- Här är ett exempel varför Pug är så bra! I filen pug.config.js
+                  //- har jag definierat mina menyflikar, så det är bara att iterera över de här!
+                  //- För varje menyflik, lägg till en länk
+                each menu_item in menu_items
+                  li.nav-item.col
+                    p.d-flex.flex-row.align-items-center
+                      // Ikon för menyfliken (Bootstrap Icons)
+                      i(class=menu_item.icon + " bi")
+                      a.nav-link.text-white.p-3(href=menu_item.url)= menu_item.text
       // Huvudinnehåll på sidan.
       //- Här i layout.pug definierar jag bara så att bakgrund och liknande blir rätt inställt,
       //- sedan används "block content" så att sidor som extendar layout.pug kan lägga in sitt innehåll där.
-      div.bg-primary.text-white.rounded-2
-        div#main-content.p-3
-          block content
+      #main-content.bg-primary.text-white.rounded-2.p-3
+        block content
   //- Ifall man skulle vilja lägga in något längst ner på en sida definierar jag ett block för det också.
   block bottom

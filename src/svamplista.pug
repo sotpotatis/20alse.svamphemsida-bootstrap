@@ -3,11 +3,11 @@
 //- data från listor.
 extends layout.pug
 block title
-    title Svamplista | Svamphemsida
+  title Svamplista | Svamphemsida
 block content
   h1 Svamplista
-  p Nedan hittar du en lista över olika svampar. De är sorterade efter deras typ.
-  div#mushrooms.d-flex.flex-column
+  p Nedan hittar du en lista över olika svampar. De är sorterade i kategorier. Tryck på pilarna för att läsa mer om varje svamp.
+  #mushrooms.d-flex.flex-column
     //- Här använder jag Pug's each-loop. Jag har i filen pug.config.js konfigurerat svampar
     //- som JavaScript-object (JSON). Detta gör att vi kan iterera över de här och skapa innehåll för
     //- varje kategori (då vi kommer åt variabeln "category" för varje kategori), och sedan längre ner för
@@ -15,43 +15,89 @@ block content
     each category in mushroom_categories
       div(id=category.id)
         // Grundläggande information: kategori och beskrivning av kategorin
-        h2=category.title
-        p=category.description
+        h2= category.title
+        p= category.description
         // Nedan följer knappar för att visa respektive gömma ("toggla") varje kategori. Genom en knapp som har en pil
         // kan man öppna och stänga kategorier, för att undvika att användaren presenteras med överväldigande mycket innehåll.
         // Funktionen för att animera och visa/gömma innehållet sköts av Bootstraps egna "collapse"-klass medan funktionen som
         // uppdaterar knappen använder JavaScript som jag har skrivit.
-        a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + category.id + "-mushrooms")
-          i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+        a.btn-link(
+          data-bs-toggle="collapse",
+          data-bs-target="#" + category.id + "-items"
+        )
+          i.bi-caret-down-fill.fs-3.text-white(
+            data-collapsed="true",
+            onclick="index.collapseButtonClicked(this)"
+          )
         // Div/"wrapper" som innehåller alla svampar för kategorin
-        div.bg-primary.rounded-3.border-1.border-dark.p-3.collapse(id=category.id + "-mushrooms")
+        .bg-primary.rounded-3.border-1.border-dark.p-3.collapse(
+          id=category.id + "-items"
+        )
           //- Här itererar jag över varje svamp i den aktuella kategorin. Se ovan för mer information.
           each mushroom in category.mushrooms
             div(id=mushroom.id)
-              div.d-flex.flex-row.align-items-center.gap-2
-                h3=mushroom.name
+              // Titel och eventuella "badges" för svampen
+              .d-flex.flex-row.align-items-center.gap-2
+                h3= mushroom.name
                 //- Svampar kan ha en liten "badge" för att markera intressanta saker med de.
                 //- Till exempel använder jag detta för att markera svampar som kan anses smarriga.
                 //- Om vi har några sådana "badges" för en svamp så skapas de nedan.
                 each badge in mushroom.badges
-                  span(class="badge px-2 px-2 fs-6 " + badge.color)=badge.text
+                  span(class="badge px-2 px-2 fs-6 " + badge.color)= badge.text
               // Nedan följer knappar för att visa respektive gömma ("toggla") varje svamp. Genom en knapp som har en pil
               // kan man öppna och stänga kategorier, för att undvika att användaren presenteras med överväldigande mycket innehåll.
               // Jag har skrivit mer om dessa svampar i en kommentar ovan vid kategori-divsen: se dessa.
-              a(class="btn-link" data-bs-toggle="collapse" data-bs-target="#" + mushroom.id + "-about")
-                i(class="bi-caret-down-fill fs-3 text-white" data-collapsed="true" onclick="index.collapseButtonClicked(this)")
+              a.btn-link(
+                data-bs-toggle="collapse",
+                data-bs-target="#" + mushroom.id + "-about"
+              )
+                i.bi-caret-down-fill.fs-3.text-white(
+                  data-collapsed="true",
+                  onclick="index.collapseButtonClicked(this)"
+                )
               // Information om svampen.
-              div.collapse.container-fluid(id=mushroom.id + "-about")
-                  div.row
-                    // Textinformation om svampen.
-                    div.col-md-8.col-sm-12
-                      h4 Om svampen
-                      p=mushroom.about
-                      h4 Utseende
-                      p=mushroom.appearance
-                      h4 Vart hittar man
-                      p=mushroom.location
-                    // Bild på svampen.
-                    div.col-md-4.col-sm-12
-                      img.img-fluid(src=mushroom.image, alt="Bild som visar en " + mushroom.name)
-                      p="Bild på en " + mushroom.name
+              .collapse.container-fluid(id=mushroom.id + "-about")
+                .row
+                  // Textinformation om svampen.
+                  .col-md-8.col-sm-12(id=mushroom.id + "-about-text")
+                    h4 Om svampen
+                    p= mushroom.about
+                    h4 Utseende
+                    p= mushroom.appearance
+                    h4 Vart hittar man
+                    p= mushroom.location
+                  // Bild på svampen.
+                  // På små skärmar, visa en "divider" för att separera bilden och texten då de kommer vara
+                  // i en och samma kolumn
+                  .d-md-none
+                    hr
+                  .col-md-4.col-sm-12(id=mushroom.id + "-about-image")
+                    // Bootstrap rekommenderar <figure> när man använder bilder med captions (https://getbootstrap.com/docs/5.0/content/figures/)
+                    figure.figure.h-25
+                      img.figure-img.h-auto.w-50(
+                        src=mushroom.image,
+                        alt='Bild på svampen "' + mushroom.name + '".'
+                      )
+                      //- Vissa bilder kräver hänvisning (Creative Commons).
+                      //- Jag kollar efter ev. hänvisning och lägger in det
+                      if mushroom.imageLicense !== undefined
+                        figcaption.figure-caption.text-white
+                          p
+                            // Information om bildkällan
+                            span= "Bild av "
+                            // Bildkällans länk
+                            a.link-light(
+                              href=mushroom.imageLicense.sourceURL,
+                              target="_blank"
+                            )= mushroom.imageLicense.sourceName
+                            span .
+                            // Licensinformation
+                            span= " Bildlicens: "
+                            // Länk till licensinformation
+                            a.link-light(
+                              href=image_licenses_information[mushroom.imageLicense.type].url,
+                              target="_blank"
+                            )= mushroom.imageLicense.type
+                          //- Kolla också efter extratext och lägg in någon sådan om det finns
+                          if mushroom.imageLicense.extraText !== undefined
+                            span= mushroom.imageLicense.extraText

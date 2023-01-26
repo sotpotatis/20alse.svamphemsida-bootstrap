@@ -3,52 +3,55 @@
 //- samt ger tips om hur man ska börja.
 extends layout
 block title
-    title Letarguide | Svamphemsida
+  title Letarguide | Svamphemsida
 block content
-    h1 Letarguide
-    p Här hittar du lite information och tips om svampplockning.
-    // Råd innan man börjar plocka
-    div#before-picking
-        h2 Innan du börjar
-        p Innan man börjar plocka svamp finns det flera saker man måste notera.
-        div.alert.alert-danger(role="alert")
-            h3.alert-heading Viktigt!
-            p Plocka aldrig svampar som du inte är säkra på att du kan plocka. Det finns många giftiga svampar som både är lätta och svåra att identifiera. Observera även att svampar som inte är giftiga kan kräva särsklda tillagningstekniker för att kunna ätas. En lista på några nybörjarsvampar finns längre ner, men ta det alltid försiktigt när du plockar och tillreder svamp!
-        h3 Utrustning:
-        p Vad behöver man för att plocka svamp? Här är en lista på saker som kan vara bra att ha med sig:
-        ul
-            li Svampkorg (för att samla dina fynd i!)
-            li Borste och kniv (för att rensa samt undersöka svampen på plats!)
-            li Kläder efter väder (för att slippa frysa!)
-            li Matsäck (om du plockar under en längre period!)
-            li Karta/GPS (så du kan orientera dig!)
-            li Ett glatt humör!
-        p Man vet aldrig hur mycket svamp man hittar. Kanske hittar man massor, och kanske hittar man ingenting. Och man vet aldrig vilka svampar man kommer hitta. Det är det som är det spännande med svampplockning!
-    // Råd efter man har plockat (när man har hittat svamp)
-    div#after-picking
-        h2 Efter att du plockat
-        p När du (förhoppningsvis) har en svampkorg med fynd är det dags att förbereda, tillaga, och äta svamparna!
-        h3 Rensing
-        h4 Borsta!
-        p Svampar måste alltid rensas för att ta bort ytlig smuts samt kontrollera att svamparna inte är maskangripna. En borste kan användas för att ta bort ytlig smuts. Detta kan du göra redan ute i naturen för att slippa lite av smutsen samt spara tid.
-        h4 Skär!
-        p På exempelvis soppar kan det finnas osynliga maskangrepp som endast är synliga om du skär ett snitt i foten eller i hatten på svampen. En rekommendation är därför att dela svampen mitt itu vertikalt: då kan du upptäcka ev. maskangrepp. Och du ska ju ändå dela svampen sen, så ju tidigare du delar den, desto mindre risk för oväntade överraskningar.
-        h3 Tillredning
+  h1 Letarguide
+  p Här hittar du lite information och tips om svampplockning.
+  // Råd innan man börjar plocka
+  #before-picking
+    h2 Innan du börjar
+    p Innan man börjar plocka svamp finns det flera saker man måste notera.
+    .alert.alert-danger(role="alert")
+      h3.alert-heading Viktigt!
+      p Plocka aldrig svampar som du inte är säkra på att du kan plocka. Det finns många giftiga svampar som både är lätta och svåra att identifiera. Observera även att svampar som inte är giftiga kan kräva särsklda tillagningstekniker för att kunna ätas. En lista på några nybörjarsvampar finns längre ner, men ta det alltid försiktigt när du plockar och tillreder svamp!
+    #equipment
+      h3 Utrustning:
+      p Vad behöver man för att plocka svamp? Här är en lista på saker som kan vara bra att ha med sig:
+      ul#equipment-list
+        li Svampkorg (för att samla dina fynd i!)
+        li Borste och kniv (för att rensa samt undersöka svampen på plats!)
+        li Kläder efter väder (för att slippa frysa!)
+        li Matsäck (om du plockar under en längre period!)
+        li Karta/GPS (så du kan orientera dig!)
+        li Ett glatt humör!
+      p Man vet aldrig hur mycket svamp man hittar. Kanske hittar man massor, och kanske hittar man ingenting. Och man vet aldrig vilka svampar man kommer hitta. Det är det som är det spännande med svampplockning!
+  // Råd efter man har plockat (när man har hittat svamp)
+  #after-picking
+    h2 Efter att du plockat
+    p När du (förhoppningsvis) har en svampkorg med fynd är det dags att förbereda, tillaga, och äta svamparna!
+    #cleaning
+      h3 Rensing
+      h4 Borsta!
+      p Svampar måste alltid rensas för att ta bort ytlig smuts samt kontrollera att svamparna inte är maskangripna. En borste kan användas för att ta bort ytlig smuts. Detta kan du göra redan ute i naturen för att slippa lite av smutsen samt spara tid.
+      h4 Skär!
+      p På exempelvis soppar kan det finnas osynliga maskangrepp som endast är synliga om du skär ett snitt i foten eller i hatten på svampen. En rekommendation är därför att dela svampen mitt itu vertikalt: då kan du upptäcka ev. maskangrepp. Och du ska ju ändå dela svampen sen, så ju tidigare du delar den, desto mindre risk för oväntade överraskningar.
+    #preparing
+      h3 Tillredning
         h4 Tillagning
         p Hur du ska tillaga en svamp skiljer sig mycket beroende på vilken sort du har plockat. Denna hemsida täcker tyvärr inte särskilda tillagningmetoder för respektive svamp.
-        div.alert.alert-warning(role="alert")
-            h3.alert-heading Angående tillagning
-            p Även om denna hemsida inte täcker tillagningsinstruktioner för svampar vill jag understryka hur viktigt det är att söka upp rätt information. Ett exempel är att även om strävsoppar inte är giftiga så kräver de värmebehandling i 15-20 minuter, annars kan förtäring orsaka illamående. Kompromissa alltså inte när du söker upp tillagningsinformation! Sök alltid upp tillagningstips samt recept från en trovärdig källa för just den svamp du har plockat.
+        .alert.alert-warning(role="alert")
+          h5.alert-heading Angående tillagning
+          p Även om denna hemsida inte täcker tillagningsinstruktioner för svampar vill jag understryka hur viktigt det är att söka upp rätt information. Ett exempel är att även om strävsoppar inte är giftiga så kräver de värmebehandling i 15-20 minuter, annars kan förtäring orsaka illamående. Kompromissa alltså inte när du söker upp tillagningsinformation! Sök alltid upp tillagningstips samt recept från en trovärdig källa för just den svamp du har plockat. Några bra länkar finns nedan
         h4 Torkning
         p Många svampar kan torkas, men inte alla. Torkade svampar kan hålla i många år och det är ett utmärkt sätt att njuta av egenplockade svampar under lågsäsong. Sök däremot upp i förväg om den svampen du plockat är ätbar.
-    // Tillhandahåll några länkar för vidare läsning
-    #more-reading
-        h2 Vidare läsning
-        p Nedan finns en lista på hemsidor som kan användas för att läsa vidare.
-        //- Listan på dessa hemsidor finns i pug.config.js. Jag har skrivit i tidigare filer hur detta fungerar
-        ul
-            each further_reading_website in further_reading_websites
-                li
-                    a.link-light(href=further_reading_website.url target="_blank")
-                        span.fw-bold=further_reading_website.title
-                        span=" - " + further_reading_website.description
+  // Tillhandahåll några länkar för vidare läsning
+  #further-reading
+    h2 Vidare läsning
+    p Nedan finns en lista på hemsidor som kan användas för att läsa vidare.
+    //- Listan på dessa hemsidor finns i pug.config.js. Jag har skrivit i tidigare filer hur detta fungerar
+    ul#external-links-list
+      each further_reading_website in further_reading_websites
+        li
+          a.link-light(href=further_reading_website.url, target="_blank")
+            span.fw-bold= further_reading_website.title
+            span= " - " + further_reading_website.description
