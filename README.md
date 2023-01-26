@@ -1,6 +1,8 @@
 # Bootstrap-projekt: egen hemsida om svampar
 
 > ➡️Du hittar hemsidan på https://20alse.ssis.nu/Bootstrap
+>
+> ➡️Du hittar Figma-prototypen på https://www.figma.com/file/Hmm1WDZMwgcv3CvkNKUOsE/Hemsida-om-svampar?node-id=106%3A78&t=f0O2PNclp9ooXqzD-1
 
 Detta är mitt projekt för en egen hemsida skapad i Bootstrap som är ett projekt i webbutveckling.
 Temat på hemsidan är att skriva om ätbara svampar.
@@ -96,6 +98,8 @@ Om man vill jobba på hemsidan kan man installera de verktyg som krävs så län
 
 1. Klona repositoryt och skriv `npm install`
 2. För att köra en lokal testserver som uppdateras när man uppdaterar källinnehållet, använd kommandot `npm run dev`.
+3. För att bygga en hemsida som kan laddas upp till en statisk innehållsserver (i detta fall SFTP-servern på `hem.ssis.nu`),
+kör kommandot `npm run build`.
 
 ## Övrigt
 

@@ -51,7 +51,8 @@ export class CalendarCard {
         "border",
         "border-light",
         "my-3",
-        "mx-4",
+        "mx-md-4",
+        "mx-1", // Minska marginal på mobilen
         "row",
       ]
     );
