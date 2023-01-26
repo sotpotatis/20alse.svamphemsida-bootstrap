@@ -26,7 +26,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/smorsopp.jpg",
             "imageLicense": {
               "type": "CC BY-SA 3.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/w/index.php?curid=4209808",
               "sourceName": "walt sturgeon (Mycowalt) via Wikimedia Commons"
             },
@@ -74,7 +74,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/bjorksopp.jpg",
             "imageLicense": {
               "type": "CC BY 4.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/wiki/File:Leccinum_scabrum_Birkenr%C3%B6hrling_1.jpg",
               "sourceName": "Holger Krisp via Wikimedia Commons"
             },
@@ -94,7 +94,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/aspsopp.jpg",
             "imageLicense": {
               "type": "CC BY-SA 4.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/wiki/File:Leccinum_aurantiacum.jpg",
               "sourceName": "Hans Hillewaert via Wikimedia Commons"
             },
@@ -114,7 +114,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/tegelsopp.jpg",
             "imageLicense": {
               "type": "CC BY 2.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://www.flickr.com/photos/demartigny/6103226302",
               "sourceName": "Charles de Mille-Isles via Flickr"
             },
@@ -169,7 +169,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/svart_trumpetsvamp.jpg",
             "imageLicense": {
               "type": "CC BY-SA 4.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/wiki/File:Craterellus_cornucopioides_3.jpg",
               "sourceName": "Franck Hidvégi via Wikimedia Commons"
             },
@@ -215,7 +215,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/blek_taggsvamp.jpg",
             "imageLicense": {
               "type": "CC BY-SA 3.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/wiki/File:HydnumRepandum.JPG",
               "sourceName": "Archenzo via Wikimedia Commons"
             },
@@ -235,7 +235,7 @@ module.exports = {
             "image": "https://20alse.ssis.nu/svampbilder/brodticka.jpg",
             "imageLicense": {
               "type": "CC BY-SA 4.0",
-              "extraText": "Inga modifikationer av originalbilden har gjorts.",
+              "extraText": "Inga modifikationer av originalbilden har gjorts förutom att filstorleken har komprimerats.",
               "sourceURL": "https://commons.wikimedia.org/wiki/File:Kr%C3%A1snoporka_%C5%BEemli%C4%8Dka_%28Albatrellus_confluens%29_11.JPG",
               "sourceName": "svajcr via Wikimedia Commons"
             },

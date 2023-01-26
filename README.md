@@ -120,3 +120,5 @@ skulle visat sig radikalt förändras, så jag lät den nya tekniken marinera et
 ### Bildkälla för svamparna
 
 Bilderna har laddats upp under https://20alse.ssis.nu/svampbilder. Hemsidan nämner licenserna för bilderna om sådana finns.
+De bilder där det krävs att man nämner modifierinar enligt licensen har detta nämnts.
+Filstorleken på bilderna har minifierats med hjälp av följande hemsida: https://imagecompressor.com/
