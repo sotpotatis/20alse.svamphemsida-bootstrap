@@ -97,6 +97,13 @@ Om man vill jobba på hemsidan kan man installera de verktyg som krävs så län
 
 ## Övrigt
 
+### Automatisk publicering
+
+För att automatiskt publicera hemsidan använder jag GitLab CI/CD med små modifieringar till samma skript som jag använde till min portfoliohemsida
+för att automatiskt ladda upp det via SFTP till skolans servrar varje gång man pushar kod.
+Tack Gustav för hjälpen med det skriptet!
+För att bygga hemsidan varje gång man committar kod och lägga till det byggda innehållet i comitten använder jag ett verktyg som heter [pre-commit](https://pre-commit.com).
+
 ### Angående commits
 
 Commit-nummer 8fbbdbf6f872840ef4726fb9c1f2e0060d57f1e9 (se [här](https://git.ssis.nu/albin/bootstrap/-/commit/8fbbdbf6f872840ef4726fb9c1f2e0060d57f1e9))
