@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel serve src/*.{html,pug}",
-    "build": "parcel build src/*.{html,pug} --public-url Bootstrap"
+    "build": "parcel build src/*.{html,pug} --public-url ."
   },
   "author": "20alse",
   "license": "ISC",
