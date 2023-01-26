@@ -104,7 +104,7 @@ Om man vill jobba på hemsidan kan man installera de verktyg som krävs så län
 För att automatiskt publicera hemsidan använder jag GitLab CI/CD med små modifieringar till samma skript som jag använde till min portfoliohemsida
 för att automatiskt ladda upp det via SFTP till skolans servrar varje gång man pushar kod.
 Tack Gustav för hjälpen med det skriptet!
-För att bygga hemsidan varje gång man committar kod och lägga till det byggda innehållet i comitten använder jag ett verktyg som heter [pre-commit](https://pre-commit.com).
+För att bygga hemsidan varje gång man committar kod och lägga till det byggda innehållet i comitten använder jag en inbyggd funktion i git som kallas Git Hooks.
 
 ### Angående commits
 
