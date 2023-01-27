@@ -5,6 +5,7 @@ Det är här nedanför jag definierar mycket av innehållet som visas på hemsid
 i form av texter och liknande. */
 module.exports = {
   "locals": {
+    // Lista över olika svampkategorier. Det är också här information om alla svampar definieras.
     "mushroom_categories": [
       {
         "title": "Soppar",
@@ -247,7 +248,8 @@ module.exports = {
           }
         ],
       }
-    ], // Lista över olika svampkategorier. Det är också här information om alla svampar definieras.
+    ],
+     // Lista över flikar i menyn.
     "menu_items": [
       {
         "url": "./index.pug",
@@ -274,7 +276,8 @@ module.exports = {
         "text": "Kontakt",
         "icon": "bi-envelope-fill"
       }
-    ], // Lista över flikar i menyn.
+    ],
+     // Lista över hemsidor att läsa mer om svampar på (för letarguide-sidan).
     "further_reading_websites": [{
       "title": "Svampguiden",
       "description": "Information om många olika svampar",
@@ -300,8 +303,9 @@ module.exports = {
       "description": "Coop har drygt 250 olika recept på svamp",
       "url": "https://www.coop.se/recept/svamp/"
     }
-    ], // Lista över hemsidor att läsa mer om svampar på (för letarguide-sidan).
-    "image_licenses_information": { // Vissa bilder har en CC-licens jag måste länka till. Här definierar jag texter och länkar till de licenserna så jag slipper upprepa mig.
+    ],
+     // Vissa bilder har en CC-licens jag måste länka till. Här definierar jag texter och länkar till de licenserna så jag slipper upprepa mig.
+    "image_licenses_information": {
       "CC BY-SA 3.0": {
         "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
       },
